@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="src/output.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <nav
+      class="flex items-center fixed top-5 left-0 right-0 z-50 rounded-[50px] justify-between p-2 w-site mx-auto border border-gray-200 bg-white/80 backdrop-blur-md transition-all duration-500"
+      id="main-nav"
+    >
+      <!-- Logo -->
+      <a href="#home" class="flex items-center shrink-0">
+        <img
+          class="w-10 h-10 rounded-full object-cover"
+          src="media/chisom.png"
+          alt="logo"
+        />
+      </a>
+
+      <!-- Center Content: Status on Mobile, Links on Desktop -->
+      <div
+        class="relative overflow-hidden h-8 flex grow items-center justify-center min-w-[150px]"
+      >
+        <!-- Links: hidden lg:flex ensures they only show on laptop -->
+        <ul
+          id="nav-links"
+          class="hidden lg:flex gap-6 font-inter text-brand-black text-md font-light tracking-wide transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+        >
+          <li>
+            <a href="#" class="nav-link-cube"
+              ><div class="cube-inner">
+                <span>Home</span><span class="text-brand-purple">Home</span>
+              </div></a
+            >
+          </li>
+          <li>
+            <a href="#" class="nav-link-cube"
+              ><div class="cube-inner">
+                <span>About</span><span class="text-brand-purple">About</span>
+              </div></a
+            >
+          </li>
+          <li>
+            <a href="#" class="nav-link-cube"
+              ><div class="cube-inner">
+                <span>Resume</span><span class="text-brand-purple">Resume</span>
+              </div></a
+            >
+          </li>
+        </ul>
+
+        <!-- Status: Center-aligned and visible by default on mobile -->
+        <!-- Status: Center-aligned and visible by default on mobile -->
+        <div
+          id="nav-status"
+          class="absolute inset-0 flex items-center justify-center gap-4"
+        >
+          <!-- The Cubic Wrapper -->
+          <a href="#" class="nav-link-cube pointer-events-auto">
+            <div class="cube-inner">
+              <span
+                class="font-inter text-md font-light text-brand-black whitespace-nowrap"
+              >
+                Available for Work
+              </span>
+              <span
+                class="font-inter text-md font-light text-brand-purple whitespace-nowrap"
+              >
+                Available for Work
+              </span>
+            </div>
+          </a>
+
+          <div class="w-2 h-2 bg-green-500 rounded-full heartbeat-dot"></div>
+        </div>
+      </div>
+
+      <!-- Right Side (Toggle/Contact) -->
+      <div class="flex items-center justify-end">
+        <button
+          id="menu-toggle"
+          class="lg:hidden w-10 h-10 bg-brand-purple rounded-full flex flex-col items-center justify-center gap-1.5 transition-all duration-300"
+        >
+          <span
+            class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"
+          ></span>
+        </button>
+
+        <div id="nav-contact" class="hidden lg:block">
+          <a
+            href="#"
+            class="btn-grow px-8 py-2 text-md font-inter bg-brand-black font-light text-brand-white rounded-full block"
+            >Contact</a
+          >
+        </div>
+      </div>
+
+      <!-- Mobile Menu Drawer -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden absolute top-[110%] left-0 right-0 bg-white border border-gray-200 rounded-[30px] p-6 opacity-0 scale-95 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+      >
+        <ul
+          class="flex flex-col gap-6 font-inter text-brand-black text-xl font-light"
+        >
+          <li><a href="#" class="mobile-link">Home</a></li>
+          <li><a href="#" class="mobile-link">About</a></li>
+          <li><a href="#" class="mobile-link">Resume</a></li>
+          <li class="pt-4 border-t border-gray-100">
+            <a href="#" class="text-brand-purple font-medium">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main id="home">
+      <div id="custom-cursor" class="custom-cursor"></div>
+      <section class="pt-22 md:pt-40 lg:pt-22 w-site lg:w-site-2 mx-auto">
+        <!-- 1. Added 'text-center' and 'items-center' to the grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          <!-- Column 1: Added pt-14 (matching the tagline height) to push DATA down slightly -->
+          <div
+            id="hero-col-1"
+            class="md:-mt-18 w-full lg:w-[250px] text-center md:justify-self-end opacity-0 "
+          >
+            <p
+              class="font-antonio tracking-tight text-xl md:text-pc text-brand-black pl-0 lg:pl-[5px]"
+            >
+              CHISOM FAVOUR
+            </p>
+            <h1
+              class="font-antonio text-pc-2 font-bold leading-none text-brand-black"
+            >
+              DATA
+            </h1>
+          </div>
+
+          <!-- Column 2: Image Section -->
+          <div id="hero-col-2" class="flex justify-center relative opacity-0">
+            <!-- 1. The Bubble is now outside the overflow-hidden container -->
+            <div
+              class="hero-bubble lg:-bottom-18 bottom-8 left-18 md:left-23 lg:-left-12 absolute w-16 h-16 lg:w-30 lg:h-30 bg-brand-purple rounded-full overflow-hidden shadow-xl z-20"
+            >
+              <div class="bubble-cube-inner">
+                <div class="bubble-face">
+                  <svg
+                    class="waving-hand-svg w-6 h-6 lg:w-12 lg:h-12 text-brand-white"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.924 17.315c-.057.174-.193.367-.416.432c-.161.047-5.488 1.59-5.652 1.633c-.469.125-.795.033-1.009-.156c-.326-.287-4.093-2.85-8.845-3.092c-.508-.025-.259-1.951 1.193-1.951c.995 0 3.904.723 4.255.371c.271-.272.394-1.879-.737-4.683L4.438 4.232a1.045 1.045 0 0 1 1.937-.781L8.361 8.37c.193.48.431.662.69.562c.231-.088.279-.242.139-.709L7.144 2.195A1.043 1.043 0 0 1 7.796.871a1.04 1.04 0 0 1 1.325.652l1.946 5.732c.172.504.354.768.642.646c.173-.073.161-.338.115-.569l-1.366-5.471a1.045 1.045 0 1 1 2.027-.506l1.26 5.042c.184.741.353 1.008.646.935c.299-.073.285-.319.244-.522l-.872-4.328a.95.95 0 0 1 1.86-.375l.948 4.711l.001.001v.001l.568 2.825c.124.533.266 1.035.45 1.527c1.085 2.889.519 5.564.334 6.143"
+                    />
+                  </svg>
+                </div>
+                <div class="bubble-face">
+                  <span
+                    class="font-inter font-normal tracking-wider text-brand-white text-xl lg:text-4xl"
+                    >Hi</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. This is your EXACT original image container, untouched -->
+            <div
+              class="flex justify-center w-6/12 lg:w-10/12 rounded-2xl max-w-sm h-10/12 overflow-hidden"
+            >
+              <img
+                class="w-full max-w-sm rounded-2xl object-cover"
+                src="media/chisom.png"
+                alt="Chisom's Portrait"
+              />
+            </div>
+          </div>
+
+          <!-- Column 3: Added pt-14 (matching the name height) to push ANALYST down to DATA's level -->
+          <div id="hero-col-3" class="space-y-6 lg:pt-14 opacity-0">
+            <!-- I added 'text-right' to the heading and the paragraph -->
+            <h1
+              class="font-antonio text-pc-2 font-bold text-brand-black leading-none text-center lg:text-right"
+            >
+              ANALYST
+            </h1>
+            <p
+              class="font-inter px-11 lg:px-0 text-md lg:text-lg font-light text-wrap leading-relaxed text-brand-black text-center lg:text-right"
+            >
+              I transform complex numbers into clear, actionable stories that
+              drive growth.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="h-[100vh]"></div>
+      </section>
+    </main>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="src/script.js"></script>
+</html>
