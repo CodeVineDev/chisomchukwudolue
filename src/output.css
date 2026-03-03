@@ -300,6 +300,9 @@
   .w-6\/12 {
     width: calc(6 / 12 * 100%);
   }
+  .w-8\/12 {
+    width: calc(8 / 12 * 100%);
+  }
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
