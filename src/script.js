@@ -75,3 +75,33 @@ window.addEventListener("load", () => {
       "<", // Start at the same time as column 1
     );
 });
+
+// Register the ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+// Responsive Scroll Animation (Laptop only)
+let mm = gsap.matchMedia();
+
+mm.add("(min-width: 1024px)", () => {
+  const serviceTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#services-section",
+      start: "top bottom",
+      end: "end top", // FAST: Animation finishes when services reach center
+      scrub: 1, // Snappier response
+    },
+  });
+
+serviceTl
+  .to("#hero-col-2", {
+    x: "25vw",
+    y: "105vh",
+    rotationY: 180, // Flip
+    rotationZ: 5,  // Tilt
+          // CUBID EFFECT: Horizontal skew
+        // CUBID EFFECT: Vertical skew shift
+    ease: "none",
+  })
+  .to(".hero-bubble", { scale: 0, opacity: 0, ease: "none" }, 0);
+
+});

@@ -14,9 +14,7 @@ nav.scrolled #nav-links {
   --font-inter: "Inter", sans-serif;
   --font-antonio: "Antonio", sans-serif;
 }
-#hero-section{
-  height: 100dvh;
-}
+
 .nav-link-cube {
   display: block;
   overflow: hidden;
@@ -179,6 +177,25 @@ nav.scrolled #nav-links {
     border: 2px solid red;
   }
 } */
+ .flip-card-inner{
+  aspect-ratio: 4/5;
+ }
+#services-section {
+  min-height: 100vh;
+}
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
 @media (max-width: 1023px) {
   #main-nav {
     width: min(92%, 300px);
@@ -202,6 +219,9 @@ nav.scrolled #nav-links {
   }
 }
 @media (min-width: 1024px) {
+  #hero-section {
+    height: 100dvh;
+  }
   #main-nav {
     width: var(--width-site);
   }

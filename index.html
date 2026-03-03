@@ -133,7 +133,7 @@
           <!-- Column 1: Added pt-14 (matching the tagline height) to push DATA down slightly -->
           <div
             id="hero-col-1"
-            class="md:-mt-18 w-full lg:w-[250px] text-center md:justify-self-end opacity-0"
+            class="md:-mt-18 w-full lg:w-[250px] text-center lg:text-left md:justify-self-end opacity-0"
           >
             <p
               class="font-antonio tracking-tight text-xl md:text-pc text-brand-black pl-0 lg:pl-[5px]"
@@ -146,15 +146,21 @@
               DATA
             </h1>
           </div>
-
           <!-- Column 2: Image Section -->
-          <div id="hero-col-2" class="flex justify-center relative opacity-0">
-            <!-- 1. The Bubble is now outside the overflow-hidden container -->
+          <div
+            id="hero-col-2"
+            class="flex justify-center relative opacity-0 perspective-1000 transform-style-3d"
+          >
+            <!-- Bubble logic remains the same -->
             <div
               class="hero-bubble lg:-bottom-18 bottom-8 left-18 md:left-23 lg:-left-12 absolute w-16 h-16 lg:w-30 lg:h-30 bg-brand-purple rounded-full overflow-hidden shadow-xl z-20"
             >
-              <div class="bubble-cube-inner">
-                <div class="bubble-face">
+              <div
+                class="bubble-cube-inner flex flex-col h-[200%] animate-bubble-flip"
+              >
+                <div
+                  class="bubble-face h-16 lg:h-30 flex items-center justify-center"
+                >
                   <svg
                     class="waving-hand-svg w-6 h-6 lg:w-12 lg:h-12 text-brand-white"
                     fill="currentColor"
@@ -166,7 +172,9 @@
                     />
                   </svg>
                 </div>
-                <div class="bubble-face">
+                <div
+                  class="bubble-face h-16 lg:h-30 flex items-center justify-center"
+                >
                   <span
                     class="font-inter font-normal tracking-wider text-brand-white text-xl lg:text-4xl"
                     >Hi</span
@@ -175,15 +183,30 @@
               </div>
             </div>
 
-            <!-- 2. This is your EXACT original image container, untouched -->
+            <!-- 3D FLIP CARD -->
             <div
-              class="flex justify-center w-6/12 lg:w-10/12 rounded-2xl max-w-sm h-10/12 overflow-hidden"
+              class="flip-card-inner transform-style-3d relative w-6/12 lg:w-full max-w-sm"
             >
-              <img
-                class="w-full max-w-sm rounded-2xl object-cover"
-                src="media/chisom.webp"
-                alt="Chisom's Portrait"
-              />
+              <!-- FRONT FACE -->
+              <div
+                class="flip-card-front backface-hidden absolute inset-0 rounded-2xl overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  src="media/chisom.webp"
+                  alt="Front"
+                />
+              </div>
+              <!-- BACK FACE -->
+              <div
+                class="flip-card-back rotate-y-180 backface-hidden absolute inset-0 rounded-2xl overflow-hidden"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  src="media/chisom-1.png"
+                  alt="Back"
+                />
+              </div>
             </div>
           </div>
 
@@ -204,7 +227,10 @@
           </div>
         </div>
       </section>
-      <section>
+      <section
+        id="services-section"
+        class="py-20 w-site-2 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4"
+      >
         <div class="service-left">
           <div>
             <h2>What I can do for you</h2>
@@ -229,8 +255,14 @@
             </div>
           </div>
         </div>
-        <div class="service-right">
-          <div></div>
+
+        <div class="service-right flex items-center justify-center">
+          <div
+            id="service-image-container"
+            class="w-full relative"
+          >
+            <!-- The image will land here! -->
+          </div>
         </div>
       </section>
       <section>
@@ -239,5 +271,7 @@
     </main>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <script src="src/script.js"></script>
 </html>
