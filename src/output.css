@@ -709,7 +709,7 @@
   pointer-events: none;
 }
 #hero-section {
-  height: min(100%, 100dvh);
+  height: 100dvh;
 }
 .nav-link-cube {
   display: block;
