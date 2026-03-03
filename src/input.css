@@ -14,6 +14,9 @@ nav.scrolled #nav-links {
   --font-inter: "Inter", sans-serif;
   --font-antonio: "Antonio", sans-serif;
 }
+main{
+  height: 100dvh;
+}
 .nav-link-cube {
   display: block;
   overflow: hidden;
