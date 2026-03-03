@@ -13,6 +13,8 @@
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-sm: 24rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
@@ -283,6 +285,9 @@
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
+  .h-9 {
+    height: calc(var(--spacing) * 9);
+  }
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
@@ -306,6 +311,9 @@
   }
   .w-6\/12 {
     width: calc(6 / 12 * 100%);
+  }
+  .w-9 {
+    width: calc(var(--spacing) * 9);
   }
   .w-10 {
     width: calc(var(--spacing) * 10);
@@ -361,8 +369,8 @@
   .gap-1\.5 {
     gap: calc(var(--spacing) * 1.5);
   }
-  .gap-4 {
-    gap: calc(var(--spacing) * 4);
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
@@ -445,14 +453,8 @@
   .pt-14 {
     padding-top: calc(var(--spacing) * 14);
   }
-  .pt-20 {
-    padding-top: calc(var(--spacing) * 20);
-  }
-  .pt-26 {
-    padding-top: calc(var(--spacing) * 26);
-  }
-  .pt-30 {
-    padding-top: calc(var(--spacing) * 30);
+  .pt-40 {
+    padding-top: calc(var(--spacing) * 40);
   }
   .pl-0 {
     padding-left: calc(var(--spacing) * 0);
@@ -468,6 +470,10 @@
   }
   .font-inter {
     font-family: var(--font-inter);
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .text-xl {
     font-size: var(--text-xl);
@@ -566,6 +572,16 @@
       margin-top: calc(var(--spacing) * -18);
     }
   }
+  .md\:h-10 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 10);
+    }
+  }
+  .md\:w-10 {
+    @media (width >= 48rem) {
+      width: calc(var(--spacing) * 10);
+    }
+  }
   .md\:justify-self-end {
     @media (width >= 48rem) {
       justify-self: flex-end;
@@ -646,6 +662,11 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .lg\:gap-4 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 4);
+    }
+  }
   .lg\:px-0 {
     @media (width >= 64rem) {
       padding-inline: calc(var(--spacing) * 0);
@@ -688,7 +709,7 @@
   pointer-events: none;
 }
 #hero-section {
-  height: 100dvh;
+  height: min(100%, 100dvh);
 }
 .nav-link-cube {
   display: block;
@@ -844,7 +865,7 @@ nav.scrolled #nav-links {
 }
 @media (max-width: 1023px) {
   #main-nav {
-    width: min(92%, 350px);
+    width: min(92%, 300px);
     padding: 0.5rem;
     margin-left: auto;
     margin-right: auto;
