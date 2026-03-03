@@ -14,7 +14,7 @@ nav.scrolled #nav-links {
   --font-inter: "Inter", sans-serif;
   --font-antonio: "Antonio", sans-serif;
 }
-main{
+#hero-section{
   height: 100dvh;
 }
 .nav-link-cube {

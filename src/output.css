@@ -436,14 +436,8 @@
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
   }
-  .px-11 {
-    padding-inline: calc(var(--spacing) * 11);
-  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
-  }
-  .pt-2 {
-    padding-top: calc(var(--spacing) * 2);
   }
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
@@ -451,11 +445,14 @@
   .pt-14 {
     padding-top: calc(var(--spacing) * 14);
   }
-  .pt-22 {
-    padding-top: calc(var(--spacing) * 22);
+  .pt-20 {
+    padding-top: calc(var(--spacing) * 20);
   }
   .pt-26 {
     padding-top: calc(var(--spacing) * 26);
+  }
+  .pt-30 {
+    padding-top: calc(var(--spacing) * 30);
   }
   .pl-0 {
     padding-left: calc(var(--spacing) * 0);
@@ -690,7 +687,7 @@
 #nav-status, nav.scrolled #nav-links {
   pointer-events: none;
 }
-main {
+#hero-section {
   height: 100dvh;
 }
 .nav-link-cube {
