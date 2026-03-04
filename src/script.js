@@ -95,7 +95,7 @@ mm.add("(min-width: 1024px)", () => {
 serviceTl
   .to("#hero-col-2", {
     x: "25vw",
-    y: "105vh",
+    y: "100vh",
     rotationY: 180, // Flip
     rotationZ: 5,  // Tilt
           // CUBID EFFECT: Horizontal skew

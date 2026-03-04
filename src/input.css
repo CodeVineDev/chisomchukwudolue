@@ -52,7 +52,7 @@ nav.scrolled #nav-links {
   z-index: -1;
 }
 .btn-grow:hover::before {
-  transform: translate(-50%, 50%) scale(1);
+  transform: translate(-50%, 50%) scale(1.5);
 }
 .custom-cursor {
   display: none;
@@ -177,9 +177,12 @@ nav.scrolled #nav-links {
     border: 2px solid red;
   }
 } */
- .flip-card-inner{
-  aspect-ratio: 4/5;
- }
+   #hero-section {
+    height: 100dvh;
+  }
+.flip-card-inner {
+  aspect-ratio: 3/4;
+}
 #services-section {
   min-height: 100vh;
 }
@@ -217,11 +220,12 @@ nav.scrolled #nav-links {
   #nav-links {
     display: none !important;
   }
+  .flip-card-inner {
+    aspect-ratio: 2/3;
+  }
 }
 @media (min-width: 1024px) {
-  #hero-section {
-    height: 100dvh;
-  }
+
   #main-nav {
     width: var(--width-site);
   }
