@@ -92,16 +92,15 @@ mm.add("(min-width: 1024px)", () => {
     },
   });
 
-serviceTl
-  .to("#hero-col-2", {
-    x: "25vw",
-    y: "100vh",
-    rotationY: 180, // Flip
-    rotationZ: 5,  // Tilt
-          // CUBID EFFECT: Horizontal skew
-        // CUBID EFFECT: Vertical skew shift
-    ease: "none",
-  })
-  .to(".hero-bubble", { scale: 0, opacity: 0, ease: "none" }, 0);
-
+  serviceTl
+    .to("#hero-col-2", {
+      x: "25vw",
+      y: "90vh",
+      rotationY: 180, // Flip
+      rotationZ: 5, // Tilt
+      // CUBID EFFECT: Horizontal skew
+      // CUBID EFFECT: Vertical skew shift
+      ease: "none",
+    })
+    .to(".hero-bubble", { scale: 0, opacity: 0, ease: "none" }, 0);
 });

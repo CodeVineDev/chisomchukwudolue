@@ -19,6 +19,8 @@
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-light: 300;
@@ -725,6 +727,12 @@
       text-align: right;
     }
   }
+  .lg\:text-2xl {
+    @media (width >= 64rem) {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+  }
   .lg\:text-4xl {
     @media (width >= 64rem) {
       font-size: var(--text-4xl);
@@ -894,13 +902,10 @@ nav.scrolled #nav-links {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 #hero-section {
-  height: 100dvh;
+  height: max-content;
 }
 .flip-card-inner {
   aspect-ratio: 3/4;
-}
-#services-section {
-  min-height: 100vh;
 }
 .perspective-1000 {
   perspective: 1000px;
