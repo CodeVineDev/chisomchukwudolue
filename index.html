@@ -126,7 +126,7 @@
       <div id="custom-cursor" class="custom-cursor"></div>
       <section
         id="hero-section"
-        class="pt-35 pb-10 md:pt-40 lg:pt-22 w-site lg:w-site-2 mx-auto"
+        class="mt-35 pb-20 md:mt-40 lg:mt-22 w-site lg:w-site-2 mx-auto"
       >
         <!-- 1. Added 'text-center' and 'items-center' to the grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
@@ -141,7 +141,7 @@
               CHISOM FAVOUR
             </p>
             <h1
-              class="font-antonio text-pc-2 font-bold leading-none text-brand-black"
+              class="font-antonio text-pc-2 font-extrabold leading-none text-brand-black"
             >
               DATA
             </h1>
@@ -214,7 +214,7 @@
           <div id="hero-col-3" class="space-y-6 lg:pt-14 lg:mt-15 opacity-0">
             <!-- I added 'text-right' to the heading and the paragraph -->
             <h1
-              class="font-antonio text-pc-2 font-bold text-brand-black leading-none text-center lg:text-right"
+              class="font-antonio text-pc-2 font-extrabold text-brand-black leading-none text-center lg:text-right"
             >
               ANALYST
             </h1>
@@ -227,7 +227,7 @@
             <div class="flex justify-center lg:justify-end">
               <a
                 href="#"
-                class="btn-grow px-8 py-2 w-fit text-md font-inter bg-brand-black font-light text-brand-white rounded-full block"
+                class="btn-grow px-8 py-2 w-fit text-lg font-inter bg-brand-black font-light text-brand-white rounded-full block"
                 >View Case Studies</a
               >
             </div>
@@ -241,27 +241,136 @@
         <div class="service-left">
           <div class="space-y-6">
             <h2
-              class="font-antonio text-pc-3 font-bold text-brand-black leading-none"
+              class="font-antonio text-pc-3 font-extrabold text-brand-black leading-none"
             >
               HOW I APPROACH DATA
             </h2>
             <!-- index.html -->
             <div
               id="reveal-text-container"
-              class="font-inter space-y-2 lg:text-md  lg:text-2xl text-wrap leading-relaxed text-brand-black"
+              class="font-inter space-y-2 lg:text-md lg:text-lg text-wrap leading-relaxed text-brand-black"
             >
-              <p>I turn complex data into clear, practical insight.
-                I analyze trends, measure performance, and build dashboards that
-                make decisions easier to understand.
-
-                My focus is always clarity, usefulness, and measurable impact.
+              <p>
+                I turn complex data into clear, practical insight. I analyze
+                trends, measure performance, and build dashboards that make
+                decisions easier to understand. My focus is always clarity,
+                usefulness, and measurable impact.
               </p>
+            </div>
+
+            <!-- Skills Accordions -->
+            <div class="mt-8 space-y-4">
+              <!-- Accordion 1 -->
+              <div class="skill-accordion border-b border-gray-200 pb-4">
+                <button
+                  class="accordion-header w-full flex justify-between items-center py-2 text-left group"
+                >
+                  <span
+                    class="font-antonio font-bold text-3xl uppercase text-brand-black group-hover:text-brand-purple transition-colors"
+                    >1. Technical & Analytical Skills</span
+                  >
+                  <svg
+                    class="w-5 h-5 transform transition-transform duration-300 group-[.active]:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div class="accordion-content hidden mt-4">
+                  <ul
+                    class="space-y-3 font-inter text-md font-light text-brand-black"
+                  >
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      Data cleaning and preparation
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      Exploratory data analysis (EDA)
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      SQL querying and aggregation
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      Excel (formulas, pivot tables, charts)
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      Power BI dashboards and reporting
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      KPI development
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Accordion 2 -->
+              <div class="skill-accordion border-b border-gray-200 pb-4">
+                <button
+                  class="accordion-header w-full flex justify-between items-center py-2 text-left group"
+                >
+                  <span
+                    class="font-antonio font-bold text-3xl uppercase text-brand-black group-hover:text-brand-purple transition-colors"
+                    >2. Business & Communication Skills</span
+                  >
+                  <svg
+                    class="w-5 h-5 transform transition-transform duration-300 group-[.active]:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div class="accordion-content hidden mt-4">
+                  <ul
+                    class="space-y-3 font-inter text-md font-light text-brand-black"
+                  >
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      Data-driven decision support
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      Performance measurement and evaluation
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      Trend and pattern identification
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      Structured report writing
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="skill-check mt-1"></span>
+                      Presenting insights clearly
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <div>
               <a
                 href="#"
-                class="btn-grow px-8 py-2 w-fit text-md font-inter bg-brand-black font-light text-brand-white rounded-full block"
+                class="btn-grow px-8 py-2 w-fit text-lg font-inter bg-brand-black font-light text-brand-white rounded-full block"
                 >View Case Studies</a
               >
             </div>

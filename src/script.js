@@ -95,7 +95,7 @@ mm.add("(min-width: 1024px)", () => {
   serviceTl
     .to("#hero-col-2", {
       x: "25vw",
-      y: "90vh",
+      y: "100vh",
       rotationY: 180, // Flip
       rotationZ: 5, // Tilt
       // CUBID EFFECT: Horizontal skew
@@ -104,3 +104,53 @@ mm.add("(min-width: 1024px)", () => {
     })
     .to(".hero-bubble", { scale: 0, opacity: 0, ease: "none" }, 0);
 });
+
+// src/script.js
+
+// --- REFINED SKILL ACCORDIONS (GSAP) ---
+document.querySelectorAll(".accordion-header").forEach((header) => {
+  header.addEventListener("click", () => {
+    const content = header.nextElementSibling;
+    const isActive = header.classList.contains("active");
+
+    // Smoothly close other accordions first
+    document.querySelectorAll(".accordion-header").forEach((otherHeader) => {
+      if (otherHeader !== header && otherHeader.classList.contains("active")) {
+        otherHeader.classList.remove("active");
+        gsap.to(otherHeader.nextElementSibling, {
+            height: 0,
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.inOut",
+            onComplete: () => { otherHeader.nextElementSibling.style.display = "none"; }
+        });
+      }
+    });
+
+    if (isActive) {
+      // Smoothly close current
+      header.classList.remove("active");
+      gsap.to(content, {
+        height: 0,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.inOut",
+        onComplete: () => { content.style.display = "none"; }
+      });
+    } else {
+      // Smoothly open current
+      header.classList.add("active");
+      content.style.display = "block"; // Show before animating height
+      gsap.fromTo(content, 
+        { height: 0, opacity: 0 },
+        { 
+          height: "auto", 
+          opacity: 1, 
+          duration: 0.5, 
+          ease: "power2.out" 
+        }
+      );
+    }
+  });
+});
+

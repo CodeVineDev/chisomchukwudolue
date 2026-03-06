@@ -10,8 +10,8 @@ nav.scrolled #nav-links {
   --width-site: min(97%, 500px);
   --width-site-2: min(90%, 1150px);
   --text-pc: clamp(1rem, 5vw, 1.7rem);
-  --text-pc-3: clamp(2rem, 5vw, 3rem);
-  --text-pc-2: clamp(2rem, 10vw, 7.6rem);
+  --text-pc-3: clamp(2.8rem, 5vw, 4rem);
+  --text-pc-2: clamp(3rem, 10vw, 7.6rem);
   --font-inter: "Inter", sans-serif;
   --font-antonio: "Antonio", sans-serif;
 }
@@ -184,6 +184,39 @@ nav.scrolled #nav-links {
 .flip-card-inner {
   aspect-ratio: 3/4;
 }
+
+/* DROPDOWNS / ACCORDIONS */
+.skill-check {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1.5px solid var(--color-brand-purple); /* Outlined circle */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  background-color: transparent;
+}
+.skill-check::after {
+  content: "";
+  width: 4px;
+  height: 7px;
+  border: solid var(--color-brand-purple);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2.5px;
+  left: 5px;
+}
+/* Base state for GSAP height animation */
+.accordion-content {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: none; /* JS will toggle this to block before animating height */
+}
+
 .perspective-1000 {
   perspective: 1000px;
 }
