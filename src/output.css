@@ -742,6 +742,12 @@
       justify-self: flex-end;
     }
   }
+  .md\:text-3xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-3xl);
+      line-height: var(--tw-leading, var(--text-3xl--line-height));
+    }
+  }
   .md\:text-pc {
     @media (width >= 48rem) {
       font-size: var(--text-pc);
