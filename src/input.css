@@ -4,7 +4,8 @@ nav.scrolled #nav-links {
   pointer-events: none;
 }
 @theme {
-  --color-brand-purple: rgb(106, 113, 223);
+  /* rgb(106, 113, 223) */
+  --color-brand-purple: #4F46E5;
   --color-brand-black: rgb(48, 48, 48);
   --color-brand-white: rgb(255, 255, 255);
   --width-site: min(97%, 500px);
