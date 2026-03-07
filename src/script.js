@@ -83,7 +83,7 @@ mm.add("(min-width: 1024px)", () => {
     scrollTrigger: {
       trigger: "#services-section",
       start: "top bottom",
-      end: "end top", // FAST: Animation finishes when services reach center
+      end: "-10% top", // FAST: Animation finishes when services reach center
       scrub: 1, // Snappier response
     },
   });
@@ -163,7 +163,7 @@ const imgFollower = document.getElementById("cursor-image-follower");
 
 const techImage = document.getElementById("cursor-tech-img");
 const commImage = document.getElementById("cursor-comm-img");
-const accordionTitles = document.querySelectorAll(".accordion-header");
+const accordionTitles = document.querySelectorAll(".skill-accordion");
 const accordionSection = document.getElementById("skills-accordion-container");
 
 // Center both (replaces old CSS translations)
