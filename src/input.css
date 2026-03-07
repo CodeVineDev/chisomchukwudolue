@@ -38,6 +38,7 @@ nav.scrolled #nav-links {
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  transition: 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
 .btn-grow::before {
   content: "";
@@ -53,7 +54,10 @@ nav.scrolled #nav-links {
   z-index: -1;
 }
 .btn-grow:hover::before {
-  transform: translate(-50%, 50%) scale(1.5);
+  transform: translate(-50%, 50%) scale(3);
+}
+.btn-grow:hover  {
+  color: var(--color-brand-white);
 }
 .custom-cursor,
 .cursor-image-follower {
