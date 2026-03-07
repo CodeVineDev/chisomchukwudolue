@@ -257,7 +257,7 @@ if (toolsSection) {
       start: "top top",
       end: "+=220%", // Pins for scrolling duration
       pin: true,
-      scrub: false, // Not scrubbing, letting it play naturally for cinematic feel
+      scrub: 1, // Changed to scrub for re-scroll compatibility
     },
   });
 
@@ -265,26 +265,24 @@ if (toolsSection) {
   toolsTl.to("#tools-heading", {
     y: -30,
     opacity: 1,
-    duration: 1.5,
+    duration: 1,
     ease: "power3.out",
   });
 
-  // 2. Logos drop with gravity, delay starts 0.5s after heading finishes
+  // 2. Logos drop with gravity
   const logos = gsap.utils.toArray(".tool-logo");
 
   toolsTl.to(
     logos,
     {
-      // Drop them to roughly 65% down the screen, scattered slightly
-      y: () => window.innerHeight * 0.65 + Math.random() * 80,
+      y: (i, el) => window.innerHeight * 0.65 + i * 10, // Staggered landing
       opacity: 1,
       rotation: (i, el) => parseFloat(el.getAttribute("data-rotation")) || 0,
-      duration: (i, el) =>
-        1.8 * (parseFloat(el.getAttribute("data-speed")) || 1),
+      duration: 1.5,
       ease: "bounce.out",
-      stagger: 0.15,
+      stagger: 0.1,
     },
-    "+=0.5",
+    "-=0.5",
   );
 
   // 3. Hover Interaction (GSAP) to prevent transform shaking
@@ -319,6 +317,56 @@ if (toolsSection) {
     });
   });
 }
+
+// --- USER LITERAL GSAP LOGIC ---
+gsap.registerPlugin(ScrollTrigger);
+
+const projectCards = document.querySelectorAll(".project-card");
+
+projectCards.forEach((project, index) => {
+  const nextProject = projectCards[index + 1];
+
+  if (nextProject) {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: project,
+        start: "top center",
+        end: "bottom center",
+        scrub: true,
+        pin: true,
+        pinSpacing: false,
+      },
+    });
+
+    tl.to(project, {
+      scale: 0.9,
+      z: -100,
+      opacity: 0.6,
+      y: -80,
+      ease: "none",
+    });
+
+    tl.from(
+      nextProject,
+      {
+        y: 300,
+        opacity: 0,
+      },
+      0,
+    );
+  }
+});
+
+// User's Literal Cursor Listener
+projectCards.forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    mainCursor.classList.add("cursor-project");
+  });
+
+  card.addEventListener("mouseleave", () => {
+    mainCursor.classList.remove("cursor-project");
+  });
+});
 
 // 6. Contact Info Scroll Animation
 gsap.fromTo(
