@@ -249,7 +249,78 @@ if (accordionSection) {
   });
 }
 
-// 4. Contact Info Scroll Animation
+const toolsSection = document.getElementById("tools-section");
+if (toolsSection) {
+  const toolsTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#tools-section",
+      start: "top top",
+      end: "+=220%", // Pins for scrolling duration
+      pin: true,
+      scrub: false, // Not scrubbing, letting it play naturally for cinematic feel
+    },
+  });
+
+  // 1. Heading fades in and floats up slightly
+  toolsTl.to("#tools-heading", {
+    y: -30,
+    opacity: 1,
+    duration: 1.5,
+    ease: "power3.out",
+  });
+
+  // 2. Logos drop with gravity, delay starts 0.5s after heading finishes
+  const logos = gsap.utils.toArray(".tool-logo");
+
+  toolsTl.to(
+    logos,
+    {
+      // Drop them to roughly 65% down the screen, scattered slightly
+      y: () => window.innerHeight * 0.65 + Math.random() * 80,
+      opacity: 1,
+      rotation: (i, el) => parseFloat(el.getAttribute("data-rotation")) || 0,
+      duration: (i, el) =>
+        1.8 * (parseFloat(el.getAttribute("data-speed")) || 1),
+      ease: "bounce.out",
+      stagger: 0.15,
+    },
+    "+=0.5",
+  );
+
+  // 3. Hover Interaction (GSAP) to prevent transform shaking
+  logos.forEach((logo) => {
+    logo.addEventListener("mouseenter", () => {
+      gsap.to(logo, {
+        scale: 1.2,
+        duration: 0.2,
+        ease: "power2.out",
+        overwrite: "auto", // Only overwrite the scale/shadow, keep the Y transform active
+      });
+      gsap.to(logo, {
+        boxShadow:
+          "0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)",
+        duration: 0.2,
+      });
+    });
+
+    logo.addEventListener("mouseleave", () => {
+      gsap.to(logo, {
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.inOut",
+        overwrite: "auto",
+      });
+      gsap.to(logo, {
+        // Revert back to original shadow
+        boxShadow:
+          "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        duration: 0.3,
+      });
+    });
+  });
+}
+
+// 6. Contact Info Scroll Animation
 gsap.fromTo(
   "#contact-info",
   { x: -50, opacity: 0 },
@@ -261,7 +332,7 @@ gsap.fromTo(
 
     scrollTrigger: {
       trigger: "#contact-section",
-      start: "top 50%", // Triggers when the top of the contact section is 75% down the viewport
+      start: "top 50%", // Triggers when the top of the contact section is 50% down the viewport
     },
   },
 );

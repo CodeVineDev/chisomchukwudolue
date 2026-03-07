@@ -5,7 +5,7 @@ nav.scrolled #nav-links {
 }
 @theme {
   /* rgb(106, 113, 223) */
-  --color-brand-purple: #4F46E5;
+  --color-brand-purple: #4f46e5;
   --color-brand-black: rgb(48, 48, 48);
   --color-brand-white: rgb(255, 255, 255);
   --width-site: min(97%, 500px);
@@ -57,7 +57,7 @@ nav.scrolled #nav-links {
 .btn-grow:hover::before {
   transform: translate(-50%, 50%) scale(3);
 }
-.btn-grow:hover  {
+.btn-grow:hover {
   color: var(--color-brand-white);
 }
 .custom-cursor,
@@ -338,4 +338,14 @@ nav.scrolled #nav-links {
     transform: translateY(-20px);
     pointer-events: none;
   }
+}
+
+/* 3. Tool Logos Interactive Hover */
+#tools-container {
+  pointer-events: none; /* Keep the container click-through so the page scrolls */
+}
+
+.tool-logo {
+  pointer-events: auto; /* Re-enable pointer events for just the logos so they catch hovers */
+  cursor: none; /* Keep custom cursor instead of default arrow */
 }
