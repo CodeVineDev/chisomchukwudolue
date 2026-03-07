@@ -1,9 +1,5 @@
-const cursor = document.getElementById("custom-cursor");
-// Update position on mouse move
-document.addEventListener("mousemove", (e) => {
-  // We use translate3d for the smoothest performance (GPU accelerated)
-  cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-});
+// --- CURSOR INITIALIZATION ---
+// (Logic consolidated at the bottom for stability)
 
 let lastScrollY = window.scrollY;
 const navbar = document.getElementById("main-nav");
@@ -118,11 +114,13 @@ document.querySelectorAll(".accordion-header").forEach((header) => {
       if (otherHeader !== header && otherHeader.classList.contains("active")) {
         otherHeader.classList.remove("active");
         gsap.to(otherHeader.nextElementSibling, {
-            height: 0,
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.inOut",
-            onComplete: () => { otherHeader.nextElementSibling.style.display = "none"; }
+          height: 0,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power2.inOut",
+          onComplete: () => {
+            otherHeader.nextElementSibling.style.display = "none";
+          },
         });
       }
     });
@@ -135,22 +133,118 @@ document.querySelectorAll(".accordion-header").forEach((header) => {
         opacity: 0,
         duration: 0.4,
         ease: "power2.inOut",
-        onComplete: () => { content.style.display = "none"; }
+        onComplete: () => {
+          content.style.display = "none";
+        },
       });
     } else {
       // Smoothly open current
       header.classList.add("active");
       content.style.display = "block"; // Show before animating height
-      gsap.fromTo(content, 
+      gsap.fromTo(
+        content,
         { height: 0, opacity: 0 },
-        { 
-          height: "auto", 
-          opacity: 1, 
-          duration: 0.5, 
-          ease: "power2.out" 
-        }
+        {
+          height: "auto",
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        },
       );
     }
   });
 });
 
+//* --- FINAL SYNCHRONIZED CURSOR & HOVER LOGIC --- */
+
+// 1. Initial Setup
+const mainCursor = document.getElementById("custom-cursor");
+const imgFollower = document.getElementById("cursor-image-follower");
+
+const techImage = document.getElementById("cursor-tech-img");
+const commImage = document.getElementById("cursor-comm-img");
+const accordionTitles = document.querySelectorAll(".accordion-header");
+const accordionSection = document.getElementById("skills-accordion-container");
+
+// Center both (replaces old CSS translations)
+gsap.set([mainCursor, imgFollower], { xPercent: -50, yPercent: -50 });
+
+// 2. Single Source of Truth for Follow Movement
+document.addEventListener("mousemove", (e) => {
+  // We use overwrite: "auto" to make sure this doesn't fight with the hover animations
+  // Speeds perfectly synchronized so they don't drift during morphing
+  gsap.to(mainCursor, {
+    x: e.clientX,
+    y: e.clientY,
+    duration: 0.1,
+    ease: "none",
+    overwrite: "auto",
+  });
+  gsap.to(imgFollower, {
+    x: e.clientX,
+    y: e.clientY,
+    duration: 0.1,
+    ease: "none",
+    overwrite: "auto",
+  });
+});
+
+// 3. Hover Effects
+if (accordionSection) {
+  accordionTitles.forEach((header, index) => {
+    header.addEventListener("mouseenter", () => {
+      const target = index === 0 ? techImage : commImage;
+      const other = index === 0 ? commImage : techImage;
+
+      // Reveal Image (morphing effect)
+      gsap.to(target, {
+        opacity: 1,
+        clipPath: "circle(100% at center)",
+        x: 60, // Exact morph offset
+        y: 20,
+        rotation: 10,
+        duration: 0.6,
+        ease: "expo.out",
+        overwrite: true,
+      });
+
+      // Hide Other explicitly
+      gsap.to(other, {
+        opacity: 0,
+        clipPath: "circle(0% at center)",
+        duration: 0.4,
+        overwrite: true,
+      });
+
+      // Morph dot away completely
+      gsap.to(mainCursor, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.3,
+        overwrite: true,
+      });
+    });
+
+    header.addEventListener("mouseleave", () => {
+      // Hide all images
+      gsap.to([techImage, commImage], {
+        opacity: 0,
+        clipPath: "circle(0% at center)",
+        x: 0,
+        y: 0,
+        rotation: 0,
+        duration: 0.4,
+        ease: "power2.inOut",
+        overwrite: true,
+      });
+      // Bring dot back right as image fades
+      gsap.to(mainCursor, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.3,
+        delay: 0.1,
+        overwrite: true,
+      });
+    });
+  });
+}

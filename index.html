@@ -123,7 +123,26 @@
     </nav>
 
     <main id="home">
+      <!-- Ensure only this one exists -->
+      <!-- index.html -->
       <div id="custom-cursor" class="custom-cursor"></div>
+      <!-- The small purple dot -->
+
+      <div id="cursor-image-follower" class="cursor-image-follower">
+        <img
+          id="cursor-tech-img"
+          src="media/technical-image.webp"
+          alt="Technical"
+          class="cursor-hover-img"
+        />
+        <img
+          id="cursor-comm-img"
+          src="media/communication-image.webp"
+          alt="Communication"
+          class="cursor-hover-img"
+        />
+      </div>
+
       <section
         id="hero-section"
         class="mt-35 pb-20 md:mt-40 lg:mt-22 w-site lg:w-site-2 mx-auto"
@@ -259,7 +278,7 @@
             </div>
 
             <!-- Skills Accordions -->
-            <div class="mt-8 space-y-4">
+            <div id="skills-accordion-container" class="mt-8 space-y-4">
               <!-- Accordion 1 -->
               <div class="skill-accordion border-b border-gray-200 pb-4">
                 <button
@@ -384,13 +403,13 @@
         </div>
       </section>
       <section>
-        <div class="space-y-6 mx-auto w-site-2">
+        <div class="space-y-6 py-20 mx-auto w-site-2">
           <h2
             class="font-antonio text-pc-3 font-bold text-brand-black leading-none"
           >
             FEATURED PROJECTS
           </h2>
-          <div>
+          <div class="text-lg font-inter font-light text-brand-black">
             <p>Each project represents a real problem explored through data.</p>
             <p>
               I focus on understanding the question behind the data, identifying

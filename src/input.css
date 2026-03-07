@@ -55,8 +55,9 @@ nav.scrolled #nav-links {
 .btn-grow:hover::before {
   transform: translate(-50%, 50%) scale(1.5);
 }
-.custom-cursor {
-  display: none;
+.custom-cursor,
+.cursor-image-follower {
+  display: none; /* Hidden on mobile */
 }
 
 .bubble-cube-inner {
@@ -216,6 +217,7 @@ nav.scrolled #nav-links {
   overflow: hidden;
   display: none; /* JS will toggle this to block before animating height */
 }
+/* src/input.css */
 
 .perspective-1000 {
   perspective: 1000px;
@@ -278,21 +280,46 @@ nav.scrolled #nav-links {
     transform: translateY(-20px);
     pointer-events: none;
   }
+
+  /* 1. The Regular Dot */
   .custom-cursor {
-    display: block;
+    display: block; /* EXPLICITLY SHOW IT */
     position: fixed;
+    border: 2px solid var(--color-brand-purple);
     top: 30px;
     left: 30px;
     width: 16px;
     height: 16px;
-    background-color: var(--color-brand-purple);
+    background-color: var(--color-brand-purple) !important;
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    translate: -50% -50%;
-    transition: transform 0.1s ease-out 10ms;
-    box-shadow: 0 0 20px rgba(106, 113, 223, 0.4);
   }
+
+  /* 2. The Image Follower */
+  .cursor-image-follower {
+    display: flex; /* EXPLICITLY SHOW IT */
+    position: fixed;
+    top: 40px;
+    left: 34px;
+    width: 400px;
+    height: 400px;
+    pointer-events: none;
+    z-index: 9998;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cursor-hover-img {
+    position: absolute;
+    opacity: 0;
+    clip-path: circle(0% at center);
+    width: 160px;
+    height: auto;
+    border-radius: 12px;
+    pointer-events: none;
+  }
+
   #nav-status {
     opacity: 0;
     transform: translateY(20px);
