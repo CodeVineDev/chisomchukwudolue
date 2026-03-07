@@ -248,3 +248,20 @@ if (accordionSection) {
     });
   });
 }
+
+// 4. Contact Info Scroll Animation
+gsap.fromTo(
+  "#contact-info",
+  { x: -50, opacity: 0 },
+  {
+    x: 0,
+    opacity: 1,
+    duration: 1.2,
+    ease: "power3.out",
+
+    scrollTrigger: {
+      trigger: "#contact-section",
+      start: "top 50%", // Triggers when the top of the contact section is 75% down the viewport
+    },
+  },
+);
