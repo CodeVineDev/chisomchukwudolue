@@ -79,23 +79,21 @@ gsap.registerPlugin(ScrollTrigger);
 let mm = gsap.matchMedia();
 
 mm.add("(min-width: 1024px)", () => {
-  const serviceTl = gsap.timeline({
+  const aboutTl = gsap.timeline({
     scrollTrigger: {
-      trigger: "#services-section",
+      trigger: "#about-section",
       start: "top bottom",
-      end: "-20% top", // FAST: Animation finishes when services reach center
-      scrub: 1, // Snappier response
+      end: "-20% top", // Animation finishes when about section reaches center
+      scrub: 1,
     },
   });
 
-  serviceTl
+  aboutTl
     .to("#hero-col-2", {
       x: "25vw",
       y: "100vh",
-      rotationY: 180, // Flip
-      rotationZ: 5, // Tilt
-      // CUBID EFFECT: Horizontal skew
-      // CUBID EFFECT: Vertical skew shift
+      rotationY: 180,
+      rotationZ: 5,
       ease: "none",
     })
     .to(".hero-bubble", { scale: 0, opacity: 0, ease: "none" }, 0);
@@ -379,10 +377,44 @@ gsap.fromTo(
     opacity: 1,
     duration: 1.2,
     ease: "power3.out",
-
     scrollTrigger: {
       trigger: "#contact-section",
-      start: "top 50%", // Triggers when the top of the contact section is 50% down the viewport
+      start: "top 50%",
+    },
+  },
+);
+
+// 7. About Section Heading — same fade-up as tools heading
+gsap.fromTo(
+  "#about-heading",
+  { y: 30, opacity: 0 },
+  {
+    y: 0,
+    opacity: 1,
+    duration: 0.9,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "#about-section",
+      start: "top 80%",
+      once: true,
+    },
+  },
+);
+
+// 8. Footer Titles — staggered fade-up on scroll into view
+gsap.fromTo(
+  ".footer-title",
+  { y: 25, opacity: 0 },
+  {
+    y: 0,
+    opacity: 1,
+    duration: 0.7,
+    ease: "power3.out",
+    stagger: 0.15,
+    scrollTrigger: {
+      trigger: "footer",
+      start: "top 85%",
+      once: true,
     },
   },
 );
