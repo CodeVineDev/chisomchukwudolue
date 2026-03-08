@@ -337,14 +337,15 @@ nav.scrolled #nav-links {
   }
 }
 
-/* 3. Tool Logos Interactive Hover */
+/* Tool Logos Interactive Hover */
 #tools-container {
-  pointer-events: none; /* Keep the container click-through so the page scrolls */
+  pointer-events: auto;
 }
 
 .tool-logo {
-  pointer-events: auto; /* Re-enable pointer events for just the logos so they catch hovers */
-  cursor: none; /* Keep custom cursor instead of default arrow */
+  pointer-events: auto;
+  cursor: none;
+  transition: transform 0.2s ease;
 }
 /* User's Literal Stacking Styles */
 .projects-section {

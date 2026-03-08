@@ -83,7 +83,7 @@ mm.add("(min-width: 1024px)", () => {
     scrollTrigger: {
       trigger: "#services-section",
       start: "top bottom",
-      end: "-10% top", // FAST: Animation finishes when services reach center
+      end: "-20% top", // FAST: Animation finishes when services reach center
       scrub: 1, // Snappier response
     },
   });
@@ -251,56 +251,59 @@ if (accordionSection) {
 
 const toolsSection = document.getElementById("tools-section");
 if (toolsSection) {
+  const logos = gsap.utils.toArray(".tool-logo");
+
+  // Set logos to their final resting positions in CSS (relative layout),
+  // so no absolute pixel calculations needed.
+  // They start off-screen above and drop in.
+  gsap.set(logos, { y: -80, opacity: 0 });
+  gsap.set("#tools-heading", { y: 30, opacity: 0 });
+
   const toolsTl = gsap.timeline({
     scrollTrigger: {
       trigger: "#tools-section",
-      start: "top top",
-      end: "+=220%", // Pins for scrolling duration
-      pin: true,
-      scrub: 1, // Changed to scrub for re-scroll compatibility
+      start: "top 75%", // Fire when section is 75% into viewport
+      once: true, // Play once, never re-trigger
     },
   });
 
-  // 1. Heading fades in and floats up slightly
+  // 1. Heading slides up and fades in
   toolsTl.to("#tools-heading", {
-    y: -30,
+    y: 0,
     opacity: 1,
-    duration: 1,
+    duration: 0.8,
     ease: "power3.out",
   });
 
-  // 2. Logos drop with gravity
-  const logos = gsap.utils.toArray(".tool-logo");
-
+  // 2. Logos drop from above with a staggered bounce
   toolsTl.to(
     logos,
     {
-      y: (i, el) => window.innerHeight * 0.65 + i * 10, // Staggered landing
+      y: 0,
       opacity: 1,
       rotation: (i, el) => parseFloat(el.getAttribute("data-rotation")) || 0,
-      duration: 1.5,
+      duration: 1.0,
       ease: "bounce.out",
-      stagger: 0.1,
+      stagger: 0.12,
     },
-    "-=0.5",
+    "-=0.3",
   );
 
-  // 3. Hover Interaction (GSAP) to prevent transform shaking
+  // 3. Hover Interaction
   logos.forEach((logo) => {
     logo.addEventListener("mouseenter", () => {
       gsap.to(logo, {
-        scale: 1.2,
-        duration: 0.2,
+        scale: 1.15,
+        duration: 0.25,
         ease: "power2.out",
-        overwrite: "auto", // Only overwrite the scale/shadow, keep the Y transform active
+        overwrite: "auto",
       });
       gsap.to(logo, {
         boxShadow:
           "0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)",
-        duration: 0.2,
+        duration: 0.25,
       });
     });
-
     logo.addEventListener("mouseleave", () => {
       gsap.to(logo, {
         scale: 1,
@@ -309,7 +312,6 @@ if (toolsSection) {
         overwrite: "auto",
       });
       gsap.to(logo, {
-        // Revert back to original shadow
         boxShadow:
           "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
         duration: 0.3,

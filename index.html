@@ -439,57 +439,55 @@
         </div>
       </section> -->
 
-      <!-- Cinematic 'My Tools' Section -->
+      <!-- My Tools Section -->
       <section
         id="tools-section"
-        class="h-[80vh] w-site-2 mx-auto relative overflow-hidden bg-brand-white flex items-center justify-center border-t border-gray-100"
+        class="py-20 w-site-2 mx-auto border-t border-gray-100"
       >
-        <div class="z-10 text-center w-full px-4">
+        <!-- Heading block matches site heading style -->
+        <div id="tools-heading" class="mb-12">
           <h2
-            id="tools-heading"
-            class="font-antonio text-6xl md:text-8xl lg:text-[10rem] font-extrabold text-brand-black uppercase leading-none opacity-0 drop-shadow-sm"
+            class="font-antonio text-pc-3 font-extrabold text-brand-black leading-none uppercase"
           >
             My Tools
           </h2>
+          <p
+            class="font-inter font-light text-md lg:text-lg text-brand-black mt-4 max-w-lg"
+          >
+            The stack I use to turn raw data into powerful, decision-ready
+            insights.
+          </p>
         </div>
 
-        <!-- The Tools Container overlay -->
-        <div
-          id="tools-container"
-          class="absolute inset-0 pointer-events-none z-20"
-        >
+        <!-- Tool chips: responsive flex-wrap, varied sizes to break monotony -->
+        <div id="tools-container" class="flex flex-wrap gap-3 md:gap-4">
           <div
-            class="tool-logo cursor-pointer absolute top-[-100px] left-[10%] md:left-[20%] bg-brand-purple text-brand-white font-inter font-medium px-6 py-3 rounded-full opacity-0 shadow-lg text-lg border border-brand-purple/50"
-            data-speed="1"
-            data-rotation="-15"
+            class="tool-logo bg-brand-purple text-brand-white font-inter font-medium px-6 py-3 rounded-full shadow-lg text-lg border border-brand-purple/50"
+            data-rotation="-5"
           >
             Excel
           </div>
           <div
-            class="tool-logo cursor-pointer absolute top-[-150px] left-[30%] md:left-[40%] bg-brand-black text-brand-white font-inter font-medium px-8 py-4 rounded-full opacity-0 shadow-2xl text-2xl border border-gray-700"
-            data-speed="0.8"
-            data-rotation="10"
+            class="tool-logo bg-brand-black text-brand-white font-inter font-semibold px-8 py-4 rounded-full shadow-2xl text-2xl border border-gray-700"
+            data-rotation="4"
           >
             Power BI
           </div>
           <div
-            class="tool-logo cursor-pointer absolute top-[-120px] right-[10%] md:right-[25%] bg-[#4F46E5] text-brand-white font-inter font-light px-6 py-3 rounded-full opacity-0 shadow-md text-xl border border-indigo-500/50"
-            data-speed="1.2"
-            data-rotation="20"
+            class="tool-logo bg-[#4F46E5] text-brand-white font-inter font-light px-7 py-3 rounded-full shadow-md text-xl border border-indigo-500/50"
+            data-rotation="8"
           >
             Tableau
           </div>
           <div
-            class="tool-logo cursor-pointer absolute top-[-80px] left-[50%] md:left-[60%] bg-brand-purple text-brand-white font-inter font-semibold px-7 py-3 rounded-full opacity-0 shadow-xl text-xl border border-brand-purple/40"
-            data-speed="0.9"
-            data-rotation="-20"
+            class="tool-logo bg-brand-black text-brand-white font-inter font-medium px-6 py-3 rounded-full shadow-lg text-lg border border-gray-700"
+            data-rotation="-6"
           >
             SQL
           </div>
           <div
-            class="tool-logo cursor-pointer absolute top-[-180px] left-[20%] md:left-[10%] bg-brand-black text-brand-white font-inter font-medium px-6 py-3 rounded-full opacity-0 shadow-lg text-lg border border-gray-700"
-            data-speed="1.1"
-            data-rotation="5"
+            class="tool-logo bg-brand-purple/10 text-brand-black font-inter font-medium px-6 py-3 rounded-full shadow text-lg border border-brand-purple/30"
+            data-rotation="3"
           >
             Statistics
           </div>
@@ -500,11 +498,11 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Left Column: Copy of Hero Column 2 -->
           <div
-            class="flex justify-center relative perspective-1000 transform-style-3d"
+            class="flex justify-center lg:justify-start relative perspective-1000 transform-style-3d"
           >
             <!-- Bubble -->
             <div
-              class="contact-bubble lg:-bottom-10 bottom-8 left-[15%] lg:left-[10%] absolute w-12 h-12 lg:w-25 lg:h-25 bg-brand-purple rounded-full overflow-hidden shadow-xl z-20"
+              class="contact-bubble lg:-bottom-10 bottom-8 left-[8%] lg:-left-[8%] absolute w-12 h-12 lg:w-25 lg:h-25 bg-brand-purple rounded-full overflow-hidden shadow-xl z-20"
             >
               <div
                 class="bubble-cube-inner flex flex-col h-[200%] animate-bubble-flip"
@@ -536,7 +534,7 @@
 
             <!-- 3D FLIP CARD -->
             <div
-              class="flip-card-inner transform-style-3d relative w-9/12 lg:w-11/12 max-w-[200px] lg:max-w-[340px]"
+              class="flip-card-inner transform-style-3d relative w-9/12 lg:full"
             >
               <div
                 class="flip-card-front backface-hidden absolute inset-0 rounded-2xl overflow-hidden"
@@ -595,7 +593,7 @@
       </section>
     </main>
 
-    <footer class="bg-brand-purple text-brand-white py-16 px-4 md:px-8 mt-20">
+    <footer class="bg-brand-purple text-brand-white py-16  mt-20">
       <div class="w-site-2 mx-auto">
         <!-- First Div: Contact & Socials -->
         <div
