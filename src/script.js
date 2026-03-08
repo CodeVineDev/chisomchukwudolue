@@ -418,3 +418,30 @@ gsap.fromTo(
     },
   },
 );
+
+// ===============================
+// Layer 3 — Grain drift animation
+// Very slow, offset X and Y loops
+// so movement never feels periodic
+// ===============================
+const grainLayer = document.getElementById("grain-layer");
+if (grainLayer) {
+  // X axis drift — slow sine wave
+  gsap.to(grainLayer, {
+    x: 18,
+    duration: 14,
+    ease: "sine.inOut",
+    repeat: -1,
+    yoyo: true,
+  });
+
+  // Y axis drift — slightly different duration so X and Y
+  // are always out of phase, creating natural-looking drift
+  gsap.to(grainLayer, {
+    y: 12,
+    duration: 19,
+    ease: "sine.inOut",
+    repeat: -1,
+    yoyo: true,
+  });
+}
