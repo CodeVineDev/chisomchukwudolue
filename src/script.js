@@ -419,29 +419,52 @@ gsap.fromTo(
   },
 );
 
-// ===============================
-// Layer 3 — Grain drift animation
-// Very slow, offset X and Y loops
-// so movement never feels periodic
-// ===============================
-const grainLayer = document.getElementById("grain-layer");
-if (grainLayer) {
-  // X axis drift — slow sine wave
-  gsap.to(grainLayer, {
-    x: 18,
+// ============================================
+// Layer 3 — Canvas grain: draw + drift
+// ============================================
+(function () {
+  const canvas = document.getElementById("grain-layer");
+  if (!canvas) return;
+
+  // Make canvas 150% of the viewport so drift never shows bare edges
+  const W = Math.ceil(window.innerWidth * 1.5);
+  const H = Math.ceil(window.innerHeight * 1.5);
+  canvas.width = W;
+  canvas.height = H;
+
+  // Offset so it's centered (25% bleed on each side)
+  gsap.set(canvas, {
+    x: -(W - window.innerWidth) / 2,
+    y: -(H - window.innerHeight) / 2,
+  });
+
+  // Draw random greyscale pixel noise
+  const ctx = canvas.getContext("2d");
+  const imageData = ctx.createImageData(W, H);
+  const data = imageData.data;
+
+  for (let i = 0; i < data.length; i += 4) {
+    const v = Math.floor(Math.random() * 255);
+    data[i] = v; // R
+    data[i + 1] = v; // G
+    data[i + 2] = v; // B
+    data[i + 3] = 38; // Alpha (~0.15 effective opacity)
+  }
+  ctx.putImageData(imageData, 0, 0);
+
+  // Drift X and Y on different cycle durations → never periodic
+  gsap.to(canvas, {
+    x: "+=" + (W - window.innerWidth) / 2,
     duration: 14,
     ease: "sine.inOut",
     repeat: -1,
     yoyo: true,
   });
-
-  // Y axis drift — slightly different duration so X and Y
-  // are always out of phase, creating natural-looking drift
-  gsap.to(grainLayer, {
-    y: 12,
+  gsap.to(canvas, {
+    y: "+=" + (H - window.innerHeight) / 2,
     duration: 19,
     ease: "sine.inOut",
     repeat: -1,
     yoyo: true,
   });
-}
+})();
