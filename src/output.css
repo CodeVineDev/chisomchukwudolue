@@ -14,7 +14,6 @@
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-gray-500: oklch(55.1% 0.027 264.364);
-    --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-black: #000;
     --color-white: #fff;
@@ -1521,8 +1520,8 @@ nav.scrolled #nav-links {
 }
 .projects-wrapper {
   position: relative;
-  height: 85vh;
-  min-height: 600px;
+  height: 70vh;
+  min-height: 500px;
   perspective: 1200px;
 }
 .project-card {
@@ -1556,9 +1555,8 @@ nav.scrolled #nav-links {
 .custom-cursor.project-hover {
   width: 80px;
   height: 80px;
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  border-color: var(--color-brand-purple);
-  mix-blend-mode: difference;
+  background-color: var(--color-brand-purple) !important;
+  border-color: transparent;
 }
 .custom-cursor.project-hover::after {
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E");

@@ -247,6 +247,108 @@ if (accordionSection) {
   });
 }
 
+// --- PROJECTS SECTION REVEAL & STACKED SCROLL INTERACTION ---
+gsap.registerPlugin(ScrollTrigger);
+
+// 1. Reveal Animation for the Section Heading
+const projectsHeadline = document.getElementById("projects-headline");
+const projectsSubheadline = document.getElementById("projects-subheadline");
+
+if (projectsHeadline && projectsSubheadline) {
+  const projectsHeadTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#projects-section",
+      start: "top 80%",
+      once: true,
+    },
+  });
+
+  projectsHeadTl
+    .to(projectsHeadline, {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power4.out",
+    })
+    .to(
+      projectsSubheadline,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "-=0.8",
+    );
+}
+
+// 2. Stacked Hover Pinning Logic
+const projectsSection = document.getElementById("projects-section");
+const projectCards = gsap.utils.toArray(".project-card");
+
+if (projectsSection && projectCards.length > 0) {
+  // Set initial states: all cards except the first are pushed down
+  gsap.set(projectCards.slice(1), { yPercent: 100 });
+
+  const stackTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: projectsSection,
+      start: "top 5%", // Pin slightly lower to give the header breathing room
+      end: () => `+=${projectCards.length * window.innerHeight}`, // Scroll distance depends on number of cards
+      scrub: 1, // Smooth scrubbing
+      pin: true, // Pin the entire section
+      anticipatePin: 1,
+    },
+  });
+
+  // Iterate over each card (starting from the second one)
+  projectCards.forEach((card, index) => {
+    if (index === 0) return; // First card is already visible
+
+    // Animate the new card sliding up
+    stackTl.to(
+      card,
+      {
+        yPercent: 0,
+        duration: 1,
+        ease: "none",
+      },
+      // Start this animation sequentially
+      `+=0`,
+    );
+
+    // Animate ALL previous cards scaling down and pushing back
+    const previousCards = projectCards.slice(0, index);
+    stackTl.to(
+      previousCards,
+      {
+        scale: () => 1 - 0.05 * (previousCards.length - index + 1), // Dynamic scaling based on depth
+        y: () => -20 * (previousCards.length - index + 1), // Dynamic Y push based on depth
+        opacity: () => 1 - 0.1 * (previousCards.length - index + 1), // Optional: fade out deeper cards slightly
+        duration: 1,
+        ease: "none",
+      },
+      "<", // Run at the same time as the current card sliding up
+    );
+  });
+}
+
+// User's Literal Cursor Listener (kept for custom cursor interactions)
+projectCards.forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    if (window.innerWidth >= 1024) {
+      mainCursor.classList.add("project-hover");
+    }
+  });
+
+  card.addEventListener("mouseleave", () => {
+    mainCursor.classList.remove("project-hover");
+  });
+});
+
+
+
+
 const toolsSection = document.getElementById("tools-section");
 if (toolsSection) {
   const logos = gsap.utils.toArray(".tool-logo");
@@ -327,105 +429,6 @@ if (toolsSection) {
     });
   });
 }
-
-// --- PROJECTS SECTION REVEAL & STACKED SCROLL INTERACTION ---
-gsap.registerPlugin(ScrollTrigger);
-
-// 1. Reveal Animation for the Section Heading
-const projectsHeadline = document.getElementById("projects-headline");
-const projectsSubheadline = document.getElementById("projects-subheadline");
-
-if (projectsHeadline && projectsSubheadline) {
-  const projectsHeadTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#projects-section",
-      start: "top 80%",
-      once: true,
-    },
-  });
-
-  projectsHeadTl
-    .to(projectsHeadline, {
-      y: 0,
-      opacity: 1,
-      duration: 1.2,
-      ease: "power4.out",
-    })
-    .to(
-      projectsSubheadline,
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-      },
-      "-=0.8",
-    );
-}
-
-// 2. Stacked Hover Pinning Logic
-const projectsSection = document.getElementById("projects-section");
-const projectCards = gsap.utils.toArray(".project-card");
-
-if (projectsSection && projectCards.length > 0) {
-  // Set initial states: all cards except the first are pushed down
-  gsap.set(projectCards.slice(1), { yPercent: 100 });
-
-  const stackTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: projectsSection,
-      start: "top top", // Pin when section hits top of viewport
-      end: () => `+=${projectCards.length * window.innerHeight}`, // Scroll distance depends on number of cards
-      scrub: 1, // Smooth scrubbing
-      pin: true, // Pin the entire section
-      anticipatePin: 1,
-    },
-  });
-
-  // Iterate over each card (starting from the second one)
-  projectCards.forEach((card, index) => {
-    if (index === 0) return; // First card is already visible
-
-    // Animate the new card sliding up
-    stackTl.to(
-      card,
-      {
-        yPercent: 0,
-        duration: 1,
-        ease: "none",
-      },
-      // Start this animation sequentially
-      `+=0`,
-    );
-
-    // Animate ALL previous cards scaling down and pushing back
-    const previousCards = projectCards.slice(0, index);
-    stackTl.to(
-      previousCards,
-      {
-        scale: () => 1 - 0.05 * (previousCards.length - index + 1), // Dynamic scaling based on depth
-        y: () => -20 * (previousCards.length - index + 1), // Dynamic Y push based on depth
-        opacity: () => 1 - 0.1 * (previousCards.length - index + 1), // Optional: fade out deeper cards slightly
-        duration: 1,
-        ease: "none",
-      },
-      "<", // Run at the same time as the current card sliding up
-    );
-  });
-}
-
-// User's Literal Cursor Listener (kept for custom cursor interactions)
-projectCards.forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    if (window.innerWidth >= 1024) {
-      mainCursor.classList.add("project-hover");
-    }
-  });
-
-  card.addEventListener("mouseleave", () => {
-    mainCursor.classList.remove("project-hover");
-  });
-});
 
 // 6. Premium Contact Section Animations
 const contactHeadline = document.getElementById("contact-headline");
