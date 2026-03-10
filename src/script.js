@@ -328,49 +328,65 @@ if (toolsSection) {
   });
 }
 
-// --- USER LITERAL GSAP LOGIC ---
+// --- PROJECTS STACKED SCROLL INTERACTION ---
 gsap.registerPlugin(ScrollTrigger);
 
-const projectCards = document.querySelectorAll(".project-card");
+const projectsSection = document.getElementById("projects-section");
+const projectCards = gsap.utils.toArray(".project-card");
 
-projectCards.forEach((project, index) => {
-  const nextProject = projectCards[index + 1];
+if (projectsSection && projectCards.length > 0) {
+  // Set initial states: all cards except the first are pushed down
+  gsap.set(projectCards.slice(1), { yPercent: 100 });
 
-  if (nextProject) {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: project,
-        start: "top center",
-        end: "bottom center",
-        scrub: true,
-        pin: true,
-        pinSpacing: false,
-      },
-    });
+  const stackTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: projectsSection,
+      start: "top top", // Pin when section hits top of viewport
+      end: () => `+=${projectCards.length * window.innerHeight}`, // Scroll distance depends on number of cards
+      scrub: 1, // Smooth scrubbing
+      pin: true, // Pin the entire section
+      anticipatePin: 1,
+    },
+  });
 
-    tl.to(project, {
-      scale: 0.9,
-      z: -100,
-      opacity: 0.6,
-      y: -80,
-      ease: "none",
-    });
+  // Iterate over each card (starting from the second one)
+  projectCards.forEach((card, index) => {
+    if (index === 0) return; // First card is already visible
 
-    tl.from(
-      nextProject,
+    // Animate the new card sliding up
+    stackTl.to(
+      card,
       {
-        y: 300,
-        opacity: 0,
+        yPercent: 0,
+        duration: 1,
+        ease: "none",
       },
-      0,
+      // Start this animation sequentially
+      `+=0`,
     );
-  }
-});
 
-// User's Literal Cursor Listener
+    // Animate ALL previous cards scaling down and pushing back
+    const previousCards = projectCards.slice(0, index);
+    stackTl.to(
+      previousCards,
+      {
+        scale: () => 1 - 0.05 * (previousCards.length - index + 1), // Dynamic scaling based on depth
+        y: () => -20 * (previousCards.length - index + 1), // Dynamic Y push based on depth
+        opacity: () => 1 - 0.1 * (previousCards.length - index + 1), // Optional: fade out deeper cards slightly
+        duration: 1,
+        ease: "none",
+      },
+      "<", // Run at the same time as the current card sliding up
+    );
+  });
+}
+
+// User's Literal Cursor Listener (kept for custom cursor interactions)
 projectCards.forEach((card) => {
   card.addEventListener("mouseenter", () => {
-    mainCursor.classList.add("cursor-project");
+    if (window.innerWidth >= 1024) {
+      mainCursor.classList.add("cursor-project");
+    }
   });
 
   card.addEventListener("mouseleave", () => {
