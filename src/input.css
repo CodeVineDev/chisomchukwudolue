@@ -432,8 +432,8 @@ nav.scrolled #nav-links {
 @media (max-width: 1023px) {
   .project-card {
     aspect-ratio: auto;
-    height: 80vh;
-    width: 95%;
+    height: 70vh;
+    width: 100%;
   }
 }
 
