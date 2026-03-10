@@ -435,6 +435,21 @@ nav.scrolled #nav-links {
   transform: scale(2);
 }
 
+/* Custom Cursor Contact CTA Enhancement */
+.custom-cursor.contact-hover {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: var(--color-brand-purple);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.contact-hover::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'/%3E%3C/svg%3E");
+  opacity: 1;
+  transform: scale(1.2);
+}
+
 /* Responsive adjustments for aspect-video on mobile */
 @media (max-width: 1023px) {
   .project-card {

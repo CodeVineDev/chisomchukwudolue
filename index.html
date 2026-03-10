@@ -259,23 +259,27 @@
         class="py-20 w-site-2 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4"
       >
         <div class="about-left">
-          <div id="about-heading" class="space-y-6">
-            <h2
-              class="font-antonio text-pc-3 font-extrabold text-brand-black leading-none"
-            >
-              HOW I APPROACH DATA
-            </h2>
-            <!-- index.html -->
-            <div
-              id="reveal-text-container"
-              class="font-inter font-light space-y-2 lg:text-md lg:text-lg text-wrap leading-relaxed text-brand-black"
-            >
-              <p>
-                I turn complex data into clear, practical insight. I analyze
-                trends, measure performance, and build dashboards that make
-                decisions easier to understand. My focus is always clarity,
-                usefulness, and measurable impact.
-              </p>
+          <div id="about-heading-container" class="space-y-6">
+            <div class="overflow-hidden pb-2">
+              <h2
+                id="about-headline"
+                class="font-antonio text-pc-3 font-extrabold text-brand-black leading-none translate-y-full opacity-0"
+              >
+                HOW I APPROACH DATA
+              </h2>
+            </div>
+            <div class="overflow-hidden">
+              <div
+                id="about-subheadline"
+                class="font-inter font-light space-y-2 lg:text-md lg:text-lg text-wrap leading-relaxed text-brand-black translate-y-10 opacity-0"
+              >
+                <p>
+                  I turn complex data into clear, practical insight. I analyze
+                  trends, measure performance, and build dashboards that make
+                  decisions easier to understand. My focus is always clarity,
+                  usefulness, and measurable impact.
+                </p>
+              </div>
             </div>
 
             <!-- Skills Accordions -->
@@ -448,18 +452,24 @@
         class="py-20 w-site-2 mx-auto border-t border-gray-100"
       >
         <!-- Heading block matches site heading style -->
-        <div id="tools-heading" class="mb-12">
-          <h2
-            class="font-antonio text-pc-3 font-extrabold text-brand-black leading-none uppercase"
-          >
-            My Tools
-          </h2>
-          <p
-            class="font-inter font-light text-md lg:text-lg text-brand-black mt-4 max-w-lg"
-          >
-            The stack I use to turn raw data into powerful, decision-ready
-            insights.
-          </p>
+        <div id="tools-heading-container" class="mb-12 space-y-4">
+          <div class="overflow-hidden pb-2">
+            <h2
+              id="tools-headline"
+              class="font-antonio text-pc-2 font-extrabold text-brand-black leading-none uppercase translate-y-full opacity-0"
+            >
+              My Tools
+            </h2>
+          </div>
+          <div class="overflow-hidden">
+            <p
+              id="tools-subheadline"
+              class="font-inter font-light text-md lg:text-lg text-brand-black max-w-lg translate-y-10 opacity-0"
+            >
+              The stack I use to turn raw data into powerful, decision-ready
+              insights.
+            </p>
+          </div>
         </div>
 
         <!-- Tool chips: responsive flex-wrap, varied sizes to break monotony -->
@@ -497,98 +507,61 @@
         </div>
       </section>
 
-      <section id="contact-section" class="py-20 w-site-2 mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Left Column: Copy of Hero Column 2 -->
-          <div
-            class="flex justify-center lg:justify-start relative perspective-1000 transform-style-3d"
-          >
-            <!-- Bubble -->
-            <div
-              class="contact-bubble lg:-bottom-10 bottom-8 left-[8%] lg:-left-[8%] absolute w-12 h-12 lg:w-25 lg:h-25 bg-brand-purple rounded-full overflow-hidden shadow-xl z-20"
-            >
-              <div
-                class="bubble-cube-inner flex flex-col h-[200%] animate-bubble-flip"
+      <section
+        id="contact-section"
+        class="py-32 w-site-2 mx-auto flex flex-col justify-center border-t border-gray-100"
+      >
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end pb-10"
+        >
+          <!-- Animated Headline (Left/Large spanning) -->
+          <div class="lg:col-span-8">
+            <div class="overflow-hidden pb-4">
+              <h2
+                id="contact-headline"
+                class="font-antonio text-pc-2 font-extrabold text-brand-black leading-[0.9] uppercase translate-y-full opacity-0"
               >
-                <div
-                  class="bubble-face h-16 lg:h-30 flex items-center justify-center"
-                >
-                  <svg
-                    class="waving-hand-svg w-5 h-5 lg:w-10 lg:h-10 text-brand-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M17.924 17.315c-.057.174-.193.367-.416.432c-.161.047-5.488 1.59-5.652 1.633c-.469.125-.795.033-1.009-.156c-.326-.287-4.093-2.85-8.845-3.092c-.508-.025-.259-1.951 1.193-1.951c.995 0 3.904.723 4.255.371c.271-.272.394-1.879-.737-4.683L4.438 4.232a1.045 1.045 0 0 1 1.937-.781L8.361 8.37c.193.48.431.662.69.562c.231-.088.279-.242.139-.709L7.144 2.195A1.043 1.043 0 0 1 7.796.871a1.04 1.04 0 0 1 1.325.652l1.946 5.732c.172.504.354.768.642.646c.173-.073.161-.338.115-.569l-1.366-5.471a1.045 1.045 0 1 1 2.027-.506l1.26 5.042c.184.741.353 1.008.646.935c.299-.073.285-.319.244-.522l-.872-4.328a.95.95 0 0 1 1.86-.375l.948 4.711l.001.001v.001l.568 2.825c.124.533.266 1.035.45 1.527c1.085 2.889.519 5.564.334 6.143"
-                    />
-                  </svg>
-                </div>
-                <div
-                  class="bubble-face h-16 lg:h-30 flex items-center justify-center"
-                >
-                  <span
-                    class="font-inter font-normal tracking-wider text-brand-white text-lg lg:text-4xl"
-                    >Hi</span
-                  >
-                </div>
-              </div>
-            </div>
-
-            <!-- 3D FLIP CARD -->
-            <div
-              class="flip-card-inner transform-style-3d relative w-9/12 lg:full"
-            >
-              <div
-                class="flip-card-front backface-hidden absolute inset-0 rounded-2xl overflow-hidden"
-              >
-                <img
-                  class="w-full h-full object-cover"
-                  src="media/chisom-2.webp"
-                  alt="Front"
-                />
-              </div>
+                Let's Build<br />
+                Something<br />
+                Exceptional
+              </h2>
             </div>
           </div>
 
-          <!-- Right Column: Contact Info & Buttons -->
-          <div
-            id="contact-info"
-            class="space-y-6 text-center lg:text-left opacity-0"
-          >
-            <h2
-              class="font-antonio text-pc-3 font-extrabold text-brand-black leading-none uppercase"
-            >
-              Let's work together
-            </h2>
-            <p
-              class="font-inter lg:w-full lg:mx-0 w-site mx-auto font-light text-md lg:text-xl text-brand-black"
-            >
-              Ready to turn complex data into powerful insights? Let's connect
-              and discuss your next project!
-            </p>
-            <a
-              href="mailto:chisomfavor003@gmail.com"
-              class="font-antonio font-light text-xl lg:text-4xl text-brand-purple"
-            >
-              chisomfavor003@gmail.com
-            </a>
+          <!-- Supporting Text & CTA (Right aligned at the bottom) -->
+          <div class="lg:col-span-4 flex flex-col items-start space-y-10 pb-4">
+            <div class="overflow-hidden">
+              <p
+                id="contact-subheadline"
+                class="font-inter font-light text-xl md:text-2xl text-brand-black translate-y-10 opacity-0"
+              >
+                Have a project in mind? Let's talk and create something
+                unforgettable together.
+              </p>
+            </div>
 
-            <div
-              class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-6"
-            >
+            <div class="overflow-hidden pt-2">
+              <!-- Using the site's existing btn-grow style -->
               <a
-                href="media/Chukwudolue C. Favour_CV .pdf"
-                download="Chisom_Favour_CV.pdf"
-                class="btn-grow px-8 py-3 w-full sm:w-auto text-xl uppercase font-antonio border-2 border-brand-purple bg-brand-white font-light text-brand-purple rounded-full block text-center"
-              >
-                Download Resume
-              </a>
-              <a
+                id="contact-cta"
                 href="mailto:chisomfavor003@gmail.com"
-                class="btn-grow px-8 py-3 w-full sm:w-auto text-xl uppercase font-antonio border-2 border-brand-purple bg-brand-white font-light text-brand-purple rounded-full block text-center"
+                class="btn-grow px-8 py-4 w-fit text-xl lg:text-3xl uppercase font-antonio border-2 border-brand-purple bg-brand-white font-light text-brand-purple rounded-full flex items-center gap-4 translate-y-10 opacity-0 group"
               >
-                Send me an Email
+                <span>Start a Conversation</span>
+                <svg
+                  class="w-6 h-6 lg:w-8 lg:h-8 transform transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
               </a>
             </div>
           </div>

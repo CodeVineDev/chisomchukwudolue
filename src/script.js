@@ -255,7 +255,6 @@ if (toolsSection) {
   // so no absolute pixel calculations needed.
   // They start off-screen above and drop in.
   gsap.set(logos, { y: -80, opacity: 0 });
-  gsap.set("#tools-heading", { y: 30, opacity: 0 });
 
   const toolsTl = gsap.timeline({
     scrollTrigger: {
@@ -265,13 +264,24 @@ if (toolsSection) {
     },
   });
 
-  // 1. Heading slides up and fades in
-  toolsTl.to("#tools-heading", {
-    y: 0,
-    opacity: 1,
-    duration: 0.8,
-    ease: "power3.out",
-  });
+  // 1. Heading slides up and fades in with premium style
+  toolsTl
+    .to("#tools-headline", {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power4.out",
+    })
+    .to(
+      "#tools-subheadline",
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "-=0.8",
+    );
 
   // 2. Logos drop from above with a staggered bounce
   toolsTl.to(
@@ -368,38 +378,96 @@ projectCards.forEach((card) => {
   });
 });
 
-// 6. Contact Info Scroll Animation
-gsap.fromTo(
-  "#contact-info",
-  { x: -50, opacity: 0 },
-  {
-    x: 0,
-    opacity: 1,
-    duration: 1.2,
-    ease: "power3.out",
+// 6. Premium Contact Section Animations
+const contactHeadline = document.getElementById("contact-headline");
+const contactSubheadline = document.getElementById("contact-subheadline");
+const contactCta = document.getElementById("contact-cta");
+
+if (contactHeadline && contactSubheadline && contactCta) {
+  const contactTl = gsap.timeline({
     scrollTrigger: {
       trigger: "#contact-section",
-      start: "top 50%",
+      start: "top 60%", // Triggers when the top of the contact section is 60% down the viewport
     },
-  },
-);
+  });
 
-// 7. About Section Heading — same fade-up as tools heading
-gsap.fromTo(
-  "#about-heading",
-  { y: 30, opacity: 0 },
-  {
-    y: 0,
-    opacity: 1,
-    duration: 0.9,
-    ease: "power3.out",
+  contactTl
+    .to(contactHeadline, {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power4.out",
+    })
+    .to(
+      contactSubheadline,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "-=0.8",
+    )
+    .to(
+      contactCta,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+      },
+      "-=0.6",
+    );
+
+  // Custom Cursor for All Premium CTAs
+  const premiumCtas = document.querySelectorAll(".btn-grow");
+  premiumCtas.forEach((cta) => {
+    cta.addEventListener("mouseenter", () => {
+      if (window.innerWidth >= 1024) {
+        mainCursor.classList.add("contact-hover");
+      }
+    });
+
+    cta.addEventListener("mouseleave", () => {
+      if (window.innerWidth >= 1024) {
+        mainCursor.classList.remove("contact-hover");
+        mainCursor.style.cssText = "";
+      }
+    });
+  });
+}
+
+// 7. About Section Heading Premium Animation
+const aboutHeadline = document.getElementById("about-headline");
+const aboutSubheadline = document.getElementById("about-subheadline");
+
+if (aboutHeadline && aboutSubheadline) {
+  const aboutHeadTl = gsap.timeline({
     scrollTrigger: {
       trigger: "#about-section",
       start: "top 80%",
       once: true,
     },
-  },
-);
+  });
+
+  aboutHeadTl
+    .to(aboutHeadline, {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power4.out",
+    })
+    .to(
+      aboutSubheadline,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "-=0.8",
+    );
+}
 
 // 8. Footer Titles — staggered fade-up on scroll into view
 gsap.fromTo(
