@@ -91,7 +91,7 @@ mm.add("(min-width: 1024px)", () => {
   aboutTl
     .to("#hero-col-2", {
       x: "25vw",
-      y: "100vh",
+      y: "110vh",
       rotationY: 180,
       rotationZ: 5,
       ease: "none",
@@ -292,11 +292,11 @@ if (projectsSection && projectCards.length > 0) {
 
   const stackTl = gsap.timeline({
     scrollTrigger: {
-      trigger: projectsSection,
-      start: "top 5%", // Pin slightly lower to give the header breathing room
+      trigger: ".projects-wrapper", // Pin the wrapper instead of the section so the title can scroll up
+      start: "top 5%", // Pin slightly lower to give the cards breathing room
       end: () => `+=${projectCards.length * window.innerHeight}`, // Scroll distance depends on number of cards
       scrub: 1, // Smooth scrubbing
-      pin: true, // Pin the entire section
+      pin: true, // Pin the wrapper
       anticipatePin: 1,
     },
   });
@@ -346,9 +346,6 @@ projectCards.forEach((card) => {
   });
 });
 
-
-
-
 const toolsSection = document.getElementById("tools-section");
 if (toolsSection) {
   const logos = gsap.utils.toArray(".tool-logo");
@@ -392,9 +389,9 @@ if (toolsSection) {
       y: 0,
       opacity: 1,
       rotation: (i, el) => parseFloat(el.getAttribute("data-rotation")) || 0,
-      duration: 1.0,
+      duration: 0.7, // Sped up from 1.0
       ease: "bounce.out",
-      stagger: 0.12,
+      stagger: 0.08, // Sped up from 0.12
     },
     "-=0.3",
   );
