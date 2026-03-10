@@ -415,14 +415,16 @@
         <div id="projects-heading-container" class="mb-12 space-y-4">
           <div class="overflow-hidden pb-2">
             <h2
-              class="font-antonio text-pc-2 font-extrabold text-brand-black leading-none uppercase"
+              id="projects-headline"
+              class="font-antonio text-pc-2 font-extrabold text-brand-black leading-none uppercase translate-y-full opacity-0"
             >
               Selected Projects
             </h2>
           </div>
           <div class="overflow-hidden">
             <p
-              class="font-inter font-light text-md lg:text-lg text-brand-black max-w-lg"
+              id="projects-subheadline"
+              class="font-inter font-light text-md lg:text-lg text-brand-black max-w-lg translate-y-10 opacity-0"
             >
               Explore how data transforms into strategy.
             </p>
@@ -432,76 +434,112 @@
         <div class="projects-wrapper w-full relative">
           <!-- Card 1 -->
           <div
-            class="project-card bg-gray-100 rounded-3xl p-10 lg:p-16 flex flex-col justify-between shadow-xl border border-gray-200"
+            class="project-card relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 flex flex-col justify-start"
           >
-            <div>
-              <h3
-                class="font-antonio text-4xl lg:text-5xl font-bold text-brand-black uppercase mb-4"
-              >
-                Retail Data Dashboard
-              </h3>
-              <p
-                class="font-inter font-light text-lg text-brand-black/70 max-w-2xl"
-              >
-                A comprehensive analytics suite turning complex regional sales
-                datasets into visual stories, leading to a 15% increase in
-                operational efficiency.
-              </p>
+            <!-- Dummy Image Background -->
+            <div class="absolute inset-0 bg-[#e0e0e0] flex items-center justify-center -z-10">
+              <span class="font-inter font-medium text-gray-400 text-sm md:text-xl tracking-widest uppercase">Project Image Placeholder</span>
             </div>
-            <div class="mt-12 flex justify-end">
-              <span class="font-inter font-medium text-brand-purple"
-                >View Case Study &rarr;</span
-              >
+            
+            <!-- Dark Overlay for Text Readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent -z-10 pointer-events-none"></div>
+
+            <!-- Content Top Aligned -->
+            <div class="p-8 lg:p-12 w-full flex flex-col lg:flex-row justify-between lg:items-start gap-6">
+              <div>
+                <h3
+                  class="font-antonio text-3xl lg:text-5xl font-bold text-white uppercase mb-4"
+                >
+                  Retail Data Dashboard
+                </h3>
+                <p
+                  class="font-inter font-light text-md md:text-lg text-white/80 max-w-2xl"
+                >
+                  A comprehensive analytics suite turning complex regional sales
+                  datasets into visual stories, leading to a 15% increase in
+                  operational efficiency.
+                </p>
+              </div>
+              <div class="flex items-center gap-2 mt-4 lg:mt-0">
+                <span
+                  class="font-inter font-medium text-white whitespace-nowrap bg-white/10 px-6 py-3 rounded-full backdrop-blur-md border border-white/20"
+                  >View Case Study &rarr;</span
+                >
+              </div>
             </div>
           </div>
 
           <!-- Card 2 -->
           <div
-            class="project-card bg-[#e8e8e8] rounded-3xl p-10 lg:p-16 flex flex-col justify-between shadow-xl border border-gray-300"
+            class="project-card relative rounded-3xl overflow-hidden shadow-2xl border border-gray-300 flex flex-col justify-start"
           >
-            <div>
-              <h3
-                class="font-antonio text-4xl lg:text-5xl font-bold text-brand-black uppercase mb-4"
-              >
-                Churn Prediction Model
-              </h3>
-              <p
-                class="font-inter font-light text-lg text-brand-black/70 max-w-2xl"
-              >
-                Leveraged historical customer data to build a predictive model
-                that identified high-risk segments, successfully reducing
-                quarterly churn by 8%.
-              </p>
+            <!-- Dummy Image Background -->
+            <div class="absolute inset-0 bg-[#d5d5d5] flex items-center justify-center -z-10">
+              <span class="font-inter font-medium text-gray-500 text-sm md:text-xl tracking-widest uppercase">Project Image Placeholder</span>
             </div>
-            <div class="mt-12 flex justify-end">
-              <span class="font-inter font-medium text-brand-purple"
-                >View Case Study &rarr;</span
-              >
+            
+            <!-- Dark Overlay for Text Readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent -z-10 pointer-events-none"></div>
+
+            <!-- Content Top Aligned -->
+            <div class="p-8 lg:p-12 w-full flex flex-col lg:flex-row justify-between lg:items-start gap-6">
+              <div>
+                <h3
+                  class="font-antonio text-3xl lg:text-5xl font-bold text-white uppercase mb-4"
+                >
+                  Churn Prediction Model
+                </h3>
+                <p
+                  class="font-inter font-light text-md md:text-lg text-white/80 max-w-2xl"
+                >
+                  Leveraged historical customer data to build a predictive model
+                  that identified high-risk segments, successfully reducing
+                  quarterly churn by 8%.
+                </p>
+              </div>
+              <div class="flex items-center gap-2 mt-4 lg:mt-0">
+                <span
+                  class="font-inter font-medium text-white whitespace-nowrap bg-white/10 px-6 py-3 rounded-full backdrop-blur-md border border-white/20"
+                  >View Case Study &rarr;</span
+                >
+              </div>
             </div>
           </div>
 
           <!-- Card 3 -->
           <div
-            class="project-card bg-[#d9d9d9] rounded-3xl p-10 lg:p-16 flex flex-col justify-between shadow-xl border border-gray-400"
+            class="project-card relative rounded-3xl overflow-hidden shadow-2xl border border-gray-400 flex flex-col justify-start"
           >
-            <div>
-              <h3
-                class="font-antonio text-4xl lg:text-5xl font-bold text-brand-black uppercase mb-4"
-              >
-                Financial KPI Reporting
-              </h3>
-              <p
-                class="font-inter font-light text-lg text-brand-black/70 max-w-2xl"
-              >
-                Automated end-of-month reporting pipelines using SQL and
-                PowerBI, saving the finance team 20 hours per month in manual
-                data aggregation.
-              </p>
+            <!-- Dummy Image Background -->
+            <div class="absolute inset-0 bg-[#c0c0c0] flex items-center justify-center -z-10">
+              <span class="font-inter font-medium text-gray-500 text-sm md:text-xl tracking-widest uppercase">Project Image Placeholder</span>
             </div>
-            <div class="mt-12 flex justify-end">
-              <span class="font-inter font-medium text-brand-purple"
-                >View Case Study &rarr;</span
-              >
+            
+            <!-- Dark Overlay for Text Readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent -z-10 pointer-events-none"></div>
+
+            <!-- Content Top Aligned -->
+            <div class="p-8 lg:p-12 w-full flex flex-col lg:flex-row justify-between lg:items-start gap-6">
+              <div>
+                <h3
+                  class="font-antonio text-3xl lg:text-5xl font-bold text-white uppercase mb-4"
+                >
+                  Financial KPI Reporting
+                </h3>
+                <p
+                  class="font-inter font-light text-md md:text-lg text-white/80 max-w-2xl"
+                >
+                  Automated end-of-month reporting pipelines using SQL and
+                  PowerBI, saving the finance team 20 hours per month in manual
+                  data aggregation.
+                </p>
+              </div>
+              <div class="flex items-center gap-2 mt-4 lg:mt-0">
+                <span
+                  class="font-inter font-medium text-white whitespace-nowrap bg-white/10 px-6 py-3 rounded-full backdrop-blur-md border border-white/20"
+                  >View Case Study &rarr;</span
+                >
+              </div>
             </div>
           </div>
         </div>

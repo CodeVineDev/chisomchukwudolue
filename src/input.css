@@ -355,8 +355,8 @@ nav.scrolled #nav-links {
 .projects-wrapper {
   position: relative;
   /* Fixed height to match cards so the pinned container holds its shape */
-  height: 60vh;
-  min-height: 400px;
+  height: 85vh;
+  min-height: 600px;
   perspective: 1200px;
 }
 
@@ -400,15 +400,17 @@ nav.scrolled #nav-links {
 }
 
 .custom-cursor.project-hover {
-  width: 60px;
-  height: 60px;
-  background-color: var(--color-brand-purple) !important;
-  border-color: transparent;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: var(--color-brand-purple);
+  mix-blend-mode: difference;
 }
 
 .custom-cursor.project-hover::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7'/%3E%3C/svg%3E");
   opacity: 1;
-  transform: scale(2);
+  transform: scale(1.5);
 }
 
 /* Custom Cursor Contact CTA Enhancement */

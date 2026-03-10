@@ -328,9 +328,42 @@ if (toolsSection) {
   });
 }
 
-// --- PROJECTS STACKED SCROLL INTERACTION ---
+// --- PROJECTS SECTION REVEAL & STACKED SCROLL INTERACTION ---
 gsap.registerPlugin(ScrollTrigger);
 
+// 1. Reveal Animation for the Section Heading
+const projectsHeadline = document.getElementById("projects-headline");
+const projectsSubheadline = document.getElementById("projects-subheadline");
+
+if (projectsHeadline && projectsSubheadline) {
+  const projectsHeadTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#projects-section",
+      start: "top 80%",
+      once: true,
+    },
+  });
+
+  projectsHeadTl
+    .to(projectsHeadline, {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: "power4.out",
+    })
+    .to(
+      projectsSubheadline,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "-=0.8",
+    );
+}
+
+// 2. Stacked Hover Pinning Logic
 const projectsSection = document.getElementById("projects-section");
 const projectCards = gsap.utils.toArray(".project-card");
 
@@ -385,12 +418,12 @@ if (projectsSection && projectCards.length > 0) {
 projectCards.forEach((card) => {
   card.addEventListener("mouseenter", () => {
     if (window.innerWidth >= 1024) {
-      mainCursor.classList.add("cursor-project");
+      mainCursor.classList.add("project-hover");
     }
   });
 
   card.addEventListener("mouseleave", () => {
-    mainCursor.classList.remove("cursor-project");
+    mainCursor.classList.remove("project-hover");
   });
 });
 
