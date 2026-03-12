@@ -156,7 +156,6 @@ nav.scrolled #nav-links {
   pointer-events: none;
 }
 #main-nav.menu-open {
-  max-height: 500px;
   border-radius: 30px;
 }
 .menu-open #menu-toggle .burger-stroke:first-child {
@@ -169,12 +168,12 @@ nav.scrolled #nav-links {
   opacity: 1;
   scale: 1;
   pointer-events: auto;
-  transform: translateY(10px);
+  transform: translateY(0);
 }
 #mobile-menu {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 /* @media (max-width: 970px) {
   body {
@@ -437,28 +436,7 @@ nav.scrolled #nav-links {
   }
 }
 
-/* ============================================
-   CINEMATIC GRAIN BACKGROUND SYSTEM
-   Three layers: gradient base + noise + motion
-   ============================================ */
-
-/* Layer 1 — Subtle warm base gradient on body */
+/* Clean solid background */
 body {
-  background: radial-gradient(
-    ellipse at 30% 20%,
-    rgba(249, 247, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 40%,
-    rgba(247, 248, 252, 1) 100%
-  );
-}
-
-/* Layer 2 — Canvas grain overlay (drawn by JS) */
-#grain-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.12;
-  mix-blend-mode: multiply;
+  background-color: #ffffff;
 }
