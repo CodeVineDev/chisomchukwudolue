@@ -294,9 +294,10 @@ if (projectsSection && projectCards.length > 0) {
     scrollTrigger: {
       trigger: ".projects-wrapper", // Pin the wrapper instead of the section so the title can scroll up
       start: "top 5%", // Pin slightly lower to give the cards breathing room
-      end: () => `+=${projectCards.length * window.innerHeight}`, // Scroll distance depends on number of cards
+      end: () => `+=${projectCards.length * window.innerHeight * 0.7}`, // Reduced distance to make it faster
       scrub: 1, // Smooth scrubbing
       pin: true, // Pin the wrapper
+      snap: 1 / (projectCards.length - 1), // Snap to each project card
       anticipatePin: 1,
     },
   });
