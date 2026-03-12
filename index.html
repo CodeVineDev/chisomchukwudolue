@@ -9,7 +9,7 @@
       @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
     </style>
   </head>
-  <body>
+  <body class="overflow-x-hidden">
 
     <nav
       class="flex items-center fixed top-5 left-0 right-0 z-50 rounded-[50px] justify-between p-2 w-site mx-auto border border-gray-200 bg-white/80 backdrop-blur-md transition-all duration-500"
@@ -104,14 +104,12 @@
           >
         </div>
       </div>
-
-      </div>
     </nav>
 
     <!-- Mobile Menu Drawer (Moved outside nav to fix layout shifts) -->
     <div
       id="mobile-menu"
-      class="lg:hidden fixed top-[110px] left-0 right-0 w-[92%] mx-auto bg-white border border-gray-200 rounded-[30px] p-6 opacity-0 scale-95 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] z-[100]"
+      class="lg:hidden fixed top-[110px] left-0 right-0 w-[92%] mx-auto bg-white border border-gray-200 rounded-[30px] p-6 opacity-0 scale-95 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] z-100"
     >
       <ul
         class="flex flex-col gap-6 font-inter text-brand-black text-xl font-light"
