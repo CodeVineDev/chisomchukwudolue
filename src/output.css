@@ -63,6 +63,7 @@
     --text-pc-2: clamp(3rem, 10vw, 7.6rem);
     --font-inter: "Inter", sans-serif;
     --font-antonio: "Antonio", sans-serif;
+    --font-playfair: "Playfair Display", serif;
   }
 }
 @layer base {
@@ -733,6 +734,9 @@
   .font-inter {
     font-family: var(--font-inter);
   }
+  .font-playfair {
+    font-family: var(--font-playfair);
+  }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -839,6 +843,9 @@
   }
   .uppercase {
     text-transform: uppercase;
+  }
+  .italic {
+    font-style: italic;
   }
   .opacity-0 {
     opacity: 0%;

@@ -15,6 +15,7 @@ nav.scrolled #nav-links {
   --text-pc-2: clamp(3rem, 10vw, 7.6rem);
   --font-inter: "Inter", sans-serif;
   --font-antonio: "Antonio", sans-serif;
+  --font-playfair: "Playfair Display", serif;
 }
 
 .nav-link-cube {
