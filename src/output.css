@@ -1445,6 +1445,20 @@ nav.scrolled #nav-links {
   .flip-card-inner {
     aspect-ratio: 2/3;
   }
+  .cursor-image-follower {
+    width: 0;
+    height: 0;
+  }
+  .cursor-hover-img {
+    position: absolute;
+    opacity: 0;
+    clip-path: circle(0% at center);
+    width: 0;
+    height: auto;
+    border-radius: 12px;
+    pointer-events: none;
+    border: 2px solid green;
+  }
 }
 @media (min-width: 1024px) {
   #main-nav {

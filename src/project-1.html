@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 1</title>
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+  </head>
+  <body class="overflow-x-hidden">
+
+    <nav
+      class="flex items-center fixed top-5 left-0 right-0 z-50 rounded-[50px] justify-between p-2 w-site mx-auto border border-gray-200 bg-white/80 backdrop-blur-md transition-all duration-500"
+      id="main-nav"
+    >
+      <!-- Logo -->
+      <a href="#home" class="flex items-center shrink-0">
+        <img
+          class="w-10 h-10 rounded-full object-cover"
+          src="../media/chisom.webp"
+          alt="logo"
+        />
+      </a>
+
+      <!-- Center Content: Status on Mobile, Links on Desktop -->
+      <div
+        class="relative overflow-hidden h-8 flex grow items-center justify-center min-w-[150px]"
+      >
+        <!-- Links: hidden lg:flex ensures they only show on laptop -->
+        <ul
+          id="nav-links"
+          class="hidden lg:flex gap-6 font-inter text-brand-black text-md font-light tracking-wide transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+        >
+          <li>
+            <a href="../index.html" class="nav-link-cube"
+              ><div class="cube-inner">
+                <span>Home</span><span class="text-brand-purple">Home</span>
+              </div></a
+            >
+          </li>
+          <li>
+            <a href="../index.html#about-section" class="nav-link-cube"
+              ><div class="cube-inner">
+                <span>About</span><span class="text-brand-purple">About</span>
+              </div></a
+            >
+          </li>
+          <li>
+            <a href="../media/Chukwudolue C. Favour_CV .pdf" download class="nav-link-cube"
+              ><div class="cube-inner">
+                <span>Resume</span><span class="text-brand-purple">Resume</span>
+              </div></a
+            >
+          </li>
+        </ul>
+
+        <!-- Status: Center-aligned and visible by default on mobile -->
+        <!-- Status: Center-aligned and visible by default on mobile -->
+        <div
+          id="nav-status"
+          class="absolute inset-0 flex items-center justify-center gap-2 lg:gap-4"
+        >
+          <!-- The Cubic Wrapper -->
+          <a href="../index.html#contact-section" class="nav-link-cube pointer-events-auto">
+            <div class="cube-inner">
+              <span
+                class="font-inter text-sm lg:text-md font-light text-brand-black whitespace-nowrap"
+              >
+                Available for Work
+              </span>
+              <span
+                class="font-inter text-sm lg:text-md font-light text-brand-purple whitespace-nowrap"
+              >
+                Available for Work
+              </span>
+            </div>
+          </a>
+
+          <div class="w-2 h-2 bg-green-500 rounded-full heartbeat-dot"></div>
+        </div>
+      </div>
+
+      <!-- Right Side (Toggle/Contact) -->
+      <div class="flex items-center justify-end">
+        <button
+          id="menu-toggle"
+          class="lg:hidden w-10 h-10 bg-brand-purple rounded-full flex flex-col items-center justify-center gap-1.5 transition-all duration-300"
+        >
+          <span
+            class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"
+          ></span>
+        </button>
+
+        <div id="nav-contact" class="hidden lg:block">
+          <a
+            href="../index.html#projects-section"
+            class="btn-grow px-8 py-2 text-md font-inter bg-brand-black font-light text-brand-white rounded-full block"
+            >Projects</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Drawer (Moved outside nav to fix layout shifts) -->
+    <div
+      id="mobile-menu"
+      class="lg:hidden fixed top-[110px] left-0 right-0 w-[92%] mx-auto bg-white border border-gray-200 rounded-[30px] p-6 opacity-0 scale-95 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] z-100"
+    >
+      <ul
+        class="flex flex-col gap-6 font-inter text-brand-black text-xl font-light"
+      >
+        <li><a href="../index.html#home" class="mobile-link">Home</a></li>
+        <li><a href="../index.html#about-section" class="mobile-link">About</a></li>
+        <li>
+          <a href="../media/Chukwudolue C. Favour_CV .pdf" download class="mobile-link"
+            >Resume</a
+          >
+        </li>
+        <li class="pt-4 border-t border-gray-100">
+          <a href="../index.html#projects-section" class="text-brand-purple font-medium"
+            >My Projects</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <main id="home">
+      <div id="custom-cursor" class="custom-cursor"></div>
+    
+
+      <section
+        id="contact-section"
+        class="py-18 md:py-32 w-site-2 mx-auto flex flex-col justify-center border-t border-gray-100"
+      >
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end pb-10"
+        >
+          <!-- Animated Headline (Left/Large spanning) -->
+          <div class="lg:col-span-8">
+            <div class="overflow-hidden pb-4">
+              <h2
+                id="contact-headline"
+                class="font-antonio text-pc-2 font-extrabold text-brand-black leading-[0.9] uppercase translate-y-full opacity-0"
+              >
+                Let's Build<br />
+                Something<br />
+                Exceptional
+              </h2>
+            </div>
+          </div>
+
+          <!-- Supporting Text & CTA (Right aligned at the bottom) -->
+          <div class="lg:col-span-4 flex flex-col items-start space-y-10 pb-4">
+            <div class="overflow-hidden">
+              <p
+                id="contact-subheadline"
+                class="font-inter font-light text-xl md:text-2xl text-brand-black translate-y-10 opacity-0"
+              >
+                Have a project in mind? Let's talk and create something
+                unforgettable together.
+              </p>
+            </div>
+
+            <div class="overflow-hidden pt-2">
+              <!-- Using the site's existing btn-grow style -->
+              <a
+                id="contact-cta"
+                href="mailto:chisomfavor003@gmail.com"
+                class="btn-grow px-8 py-4 w-fit text-xl lg:text-3xl uppercase font-antonio border-2 border-brand-purple bg-brand-white font-light text-brand-purple rounded-full flex items-center gap-4 translate-y-10 opacity-0 group"
+              >
+                <span>Start a Conversation</span>
+                <svg
+                  class="w-6 h-6 lg:w-8 lg:h-8 transform transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-brand-purple text-brand-white py-16">
+      <div class="w-site-2 mx-auto">
+        <!-- First Div: Contact & Socials -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-8 border-b-2 border-brand-white"
+        >
+          <div class="flex flex-col space-y-2">
+            <h3 class="footer-title font-antonio text-2xl font-bold uppercase">
+              Email
+            </h3>
+            <a
+              href="mailto:chisomfavor003@gmail.com"
+              class="font-inter font-light text-xl hover:text-brand-black transition-colors"
+              >chisomfavor003@gmail.com</a
+            >
+          </div>
+
+          <div class="flex flex-col space-y-2">
+            <h3 class="footer-title font-antonio text-2xl font-bold uppercase">
+              Number
+            </h3>
+            <a
+              href="tel:+2349026621842"
+              class="font-inter font-light text-xl hover:text-brand-black transition-colors"
+              >+234 902 662 1842
+            </a>
+          </div>
+
+          <div class="flex flex-col space-y-2 md:justify-self-end">
+            <h3
+              class="footer-title font-antonio text-2xl font-bold uppercase md:text-right"
+            >
+              Socials
+            </h3>
+            <div class="flex gap-6 font-inter font-light text-xl">
+              <a
+                href="https://www.linkedin.com/in/chukwudolue-chisom"
+                class="hover:text-brand-black transition-colors"
+                >LinkedIn</a
+              >
+              <a
+                href="https://x.com/Chisom_favour03?s=09"
+                class="hover:text-brand-black transition-colors"
+                >Twitter</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Div: Copyright -->
+        <div
+          class="mt-8 flex flex-col md:flex-row justify-between md:items-center gap-4 font-inter font-light text-md md:text-lg"
+        >
+          <div>&copy; 2026 Chisom C. Favour. All Rights Reserved.</div>
+          <div>
+            Designed by
+            <a href="https://www.instagram.com/theofficialcodevine/"
+              >Codevine</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="script.js"></script>
+</html>
+
+
+<!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
