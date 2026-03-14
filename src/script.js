@@ -44,6 +44,16 @@ document.querySelectorAll(".mobile-link").forEach((link) => {
 
 // GSAP Intro & Hero Animation
 window.addEventListener("load", () => {
+  const isProjectPage = window.location.pathname.includes("project-");
+  
+  if (isProjectPage) {
+    // Skip intro on project pages
+    document.body.style.overflow = "";
+    const introOverlay = document.getElementById("intro-overlay");
+    if (introOverlay) introOverlay.style.display = "none";
+    return;
+  }
+
   // Lock scrolling during intro
   document.body.style.overflow = "hidden";
   window.scrollTo(0, 0); // Ensure started at top
@@ -625,3 +635,77 @@ gsap.fromTo(
   },
 );
 
+// ==========================================
+// CASE STUDY: NEW MICRO-INTERACTIONS
+// ==========================================
+
+// --- Reveal Elements on Scroll ---
+if (document.querySelector(".gs-reveal")) {
+  const revealElements = gsap.utils.toArray(".gs-reveal");
+  revealElements.forEach((elem) => {
+    gsap.fromTo(
+      elem,
+      { autoAlpha: 0, y: 50 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        y: 0,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: elem,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
+}
+
+// --- Number Counter Animation on Scroll ---
+if (document.querySelector(".number-counter")) {
+  const counters = gsap.utils.toArray(".number-counter");
+  counters.forEach((counter) => {
+    const target = parseFloat(counter.getAttribute("data-target"));
+    const prefix = counter.getAttribute("data-prefix") || "";
+    const suffix = counter.getAttribute("data-suffix") || "";
+
+    gsap.fromTo(
+      counter,
+      { innerHTML: 0 },
+      {
+        innerHTML: target,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: counter,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        },
+        onUpdate: function () {
+          counter.innerHTML = prefix + Math.ceil(this.targets()[0].innerHTML) + suffix;
+        }
+      }
+    );
+  });
+}
+
+// --- Hover Image Micro-interaction ---
+const hoverImages = gsap.utils.toArray(".hover-image");
+hoverImages.forEach((img) => {
+  img.addEventListener("mouseenter", () => {
+     gsap.to(img, { scale: 1.02, duration: 0.4, ease: "power2.out" });
+  });
+  img.addEventListener("mouseleave", () => {
+     gsap.to(img, { scale: 1, duration: 0.4, ease: "power2.out" });
+  });
+});
+
+const hoverCards = gsap.utils.toArray(".hover-card");
+hoverCards.forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+     gsap.to(card, { y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)", duration: 0.3, ease: "power2.out" });
+  });
+  card.addEventListener("mouseleave", () => {
+     gsap.to(card, { y: 0, boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)", duration: 0.3, ease: "power2.out" });
+  });
+});
