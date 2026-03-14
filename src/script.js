@@ -1,6 +1,7 @@
 // --- CURSOR INITIALIZATION ---
 // (Logic consolidated at the bottom for stability)
 
+const mainCursor = document.getElementById("custom-cursor");
 let lastScrollY = window.scrollY;
 const navbar = document.getElementById("main-nav");
 
@@ -41,35 +42,101 @@ document.querySelectorAll(".mobile-link").forEach((link) => {
   });
 });
 
-// GSAP Hero Animation
+// GSAP Intro & Hero Animation
 window.addEventListener("load", () => {
-  const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+  // Lock scrolling during intro
+  document.body.style.overflow = "hidden";
+  window.scrollTo(0, 0); // Ensure started at top
 
-  tl.to("#hero-col-2", {
-    opacity: 1,
-    rotationX: 0,
-    scale: 1,
-    duration: 1.5,
-    startAt: { rotationX: -120, scale: 0 }, // Reversed vertical flip
-  })
-    .to(
-      "#hero-col-1",
-      {
-        opacity: 1,
-        x: 0,
-        startAt: { x: 50 }, // Fade in from the right
-      },
-      "-=0.8", // Start while column 2 is finishing
-    )
-    .to(
-      "#hero-col-3",
-      {
-        opacity: 1,
-        x: 0,
-        startAt: { x: -50 }, // Fade in from the left
-      },
-      "<", // Start at the same time as column 1
-    );
+  // The function to play the original Hero animations
+  function playHeroAnimation() {
+    const heroTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+
+    heroTl.to("#hero-col-2", {
+      opacity: 1,
+      rotationX: 0,
+      scale: 1,
+      duration: 1.5,
+      startAt: { rotationX: -120, scale: 0 }, // Reversed vertical flip
+    })
+      .to(
+        "#hero-col-1",
+        {
+          opacity: 1,
+          x: 0,
+          startAt: { x: 50 }, // Fade in from the right
+        },
+        "-=0.8", // Start while column 2 is finishing
+      )
+      .to(
+        "#hero-col-3",
+        {
+          opacity: 1,
+          x: 0,
+          startAt: { x: -50 }, // Fade in from the left
+        },
+        "<", // Start at the same time as column 1
+      );
+  }
+
+  // Create Intro Timeline
+  const introTl = gsap.timeline({
+    onComplete: () => {
+      // Re-enable scrolling after intro completes
+      document.body.style.overflow = "";
+      // Hide overlay so it doesn't block clicks
+      document.getElementById("intro-overlay").style.display = "none";
+      // Trigger Hero Animation
+      playHeroAnimation();
+    }
+  });
+
+  introTl
+    // Step 1: Scanning Line Animation
+    .to("#intro-loader-bar", {
+      scaleX: 1,
+      duration: 2.5,
+      ease: "power2.inOut"
+    })
+    // Step 2: Loader fades out, Text transitions
+    .to("#intro-loader-line", {
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.inOut"
+    })
+    .to("#intro-status-text", {
+      y: "-100%",
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.inOut"
+    }, "<")
+    .to("#intro-status-complete", {
+      y: "0%",
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.inOut"
+    }, "<")
+    // Hold "Data analyzed" briefly
+    .to({}, { duration: 0.8 })
+    // Step 3: Fade out status text, Fade in Welcome Message
+    .to("#intro-loader-container", {
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.inOut"
+    })
+    .to("#intro-welcome-text", {
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out"
+    }, "-=0.2")
+    // Hold Welcome message
+    .to({}, { duration: 0.8 })
+    // Step 4: Curtain Reveal (animate the whole overlay up)
+    .to("#intro-overlay", {
+      yPercent: -100,
+      duration: 1.2,
+      ease: "expo.inOut"
+    });
 });
 
 // Register the ScrollTrigger plugin
@@ -160,7 +227,6 @@ const cursorMM = gsap.matchMedia();
 cursorMM.add("(min-width: 1025px)", () => {
 
   // 1. Initial Setup
-  const mainCursor = document.getElementById("custom-cursor");
   const imgFollower = document.getElementById("cursor-image-follower");
 
   const techImage = document.getElementById("cursor-tech-img");
@@ -488,7 +554,6 @@ if (contactHeadline && contactSubheadline && contactCta) {
     cta.addEventListener("mouseleave", () => {
       if (window.innerWidth >= 1024) {
         mainCursor.classList.remove("contact-hover");
-        mainCursor.style.cssText = "";
       }
     });
   });

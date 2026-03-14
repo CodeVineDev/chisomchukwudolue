@@ -315,7 +315,7 @@ nav.scrolled #nav-links {
     background-color: var(--color-brand-purple) !important;
     border-radius: 50%;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 9980;
   }
 
   /* 2. The Image Follower */

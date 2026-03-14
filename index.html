@@ -10,6 +10,29 @@
     </style>
   </head>
   <body>
+    <!-- Premium Cinematic Intro Sequence -->
+    <div id="intro-overlay" class="fixed inset-0 bg-[#0a0a0a] z-9990 flex flex-col items-center justify-center font-inter">
+      <div id="intro-loader-container" class="w-full max-w-[200px] flex flex-col items-center gap-6">
+        <!-- Minimal loading indicator -->
+        <div id="intro-loader-line" class="relative w-full h-px bg-white/10 overflow-hidden">
+          <div id="intro-loader-bar" class="absolute top-0 left-0 h-full w-full bg-white/80 origin-left scale-x-0"></div>
+        </div>
+        <!-- Status Text Element -->
+        <div class="relative h-6 w-full flex justify-center items-center overflow-hidden">
+          <span id="intro-status-text" class="absolute text-white/60 text-xs tracking-[0.2em] uppercase font-light translate-y-0 opacity-100">
+            Analyzing data
+          </span>
+          <span id="intro-status-complete" class="absolute text-white/80 text-xs tracking-[0.2em] uppercase font-light translate-y-full opacity-0">
+            Data analyzed
+          </span>
+        </div>
+      </div>
+      <!-- Welcome Message -->
+      <div id="intro-welcome-text" class="absolute inset-0 flex items-center justify-center text-white/90 text-lg md:text-xl tracking-[0.3em] uppercase font-light opacity-0 pointer-events-none">
+        Welcome
+      </div>
+    </div>
+
     <nav
       class="flex items-center fixed top-5 left-0 right-0 z-50 rounded-[50px] justify-between p-2 w-site mx-auto border border-gray-200 bg-white/80 backdrop-blur-md transition-all duration-500"
       id="main-nav"
