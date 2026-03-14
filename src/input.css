@@ -461,3 +461,17 @@ nav.scrolled #nav-links {
 body {
   background-color: #ffffff;
 }
+
+/* Tooltip for truncated Project Cards */
+.card-tooltip {
+  @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-max max-w-[250px] p-3 bg-gray-900 text-white text-xs sm:text-[13px] rounded-xl opacity-0 invisible transition-all duration-200 z-50 shadow-2xl pointer-events-none text-center font-inter font-medium leading-relaxed;
+}
+.group:focus .card-tooltip,
+.group:hover .card-tooltip,
+.group:active .card-tooltip {
+  @apply opacity-100 visible translate-y-[-4px];
+}
+.card-tooltip::after {
+  content: '';
+  @apply absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-gray-900;
+}
