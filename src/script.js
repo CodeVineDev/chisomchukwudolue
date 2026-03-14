@@ -290,14 +290,20 @@ if (projectsSection && projectCards.length > 0) {
   // Set initial states: all cards except the first are pushed down
   gsap.set(projectCards.slice(1), { yPercent: 100 });
 
+  // Responsive pinning: wrapper on laptop+, section on mobile
+  const isMobile = window.innerWidth < 1024;
+  const pinTarget = isMobile ? projectsSection : document.querySelector(".projects-wrapper");
+  const pinTrigger = isMobile ? "#projects-section" : ".projects-wrapper";
+  const pinStart = isMobile ? "top top" : "top 5%";
+
   const stackTl = gsap.timeline({
     scrollTrigger: {
-      trigger: ".projects-wrapper", // Pin the wrapper instead of the section so the title can scroll up
-      start: "top 5%", // Pin slightly lower to give the cards breathing room
-      end: () => `+=${projectCards.length * window.innerHeight * 0.7}`, // Reduced distance to make it faster
-      scrub: 1, // Smooth scrubbing
-      pin: true, // Pin the wrapper
-      snap: 1 / (projectCards.length - 1), // Snap to each project card
+      trigger: pinTrigger,
+      start: pinStart,
+      end: () => `+=${projectCards.length * window.innerHeight * 0.7}`,
+      scrub: 1,
+      pin: true,
+      snap: 1 / (projectCards.length - 1),
       anticipatePin: 1,
     },
   });
@@ -314,7 +320,6 @@ if (projectsSection && projectCards.length > 0) {
         duration: 1,
         ease: "none",
       },
-      // Start this animation sequentially
       `+=0`,
     );
 
@@ -323,13 +328,13 @@ if (projectsSection && projectCards.length > 0) {
     stackTl.to(
       previousCards,
       {
-        scale: () => 1 - 0.05 * (previousCards.length - index + 1), // Dynamic scaling based on depth
-        y: () => -20 * (previousCards.length - index + 1), // Dynamic Y push based on depth
-        opacity: () => 1 - 0.1 * (previousCards.length - index + 1), // Optional: fade out deeper cards slightly
+        scale: () => 1 - 0.05 * (previousCards.length - index + 1),
+        y: () => -20 * (previousCards.length - index + 1),
+        opacity: () => 1 - 0.1 * (previousCards.length - index + 1),
         duration: 1,
         ease: "none",
       },
-      "<", // Run at the same time as the current card sliding up
+      "<",
     );
   });
 }
@@ -437,7 +442,7 @@ if (contactHeadline && contactSubheadline && contactCta) {
   const contactTl = gsap.timeline({
     scrollTrigger: {
       trigger: "#contact-section",
-      start: "top 60%", // Triggers when the top of the contact section is 60% down the viewport
+      start: "top 60%",
     },
   });
 
@@ -484,6 +489,22 @@ if (contactHeadline && contactSubheadline && contactCta) {
         mainCursor.style.cssText = "";
       }
     });
+  });
+}
+
+// Resume CTA Fade-in Animation (same style as contact CTA)
+const resumeCta = document.getElementById("tools-resume-cta");
+if (resumeCta) {
+  gsap.to(resumeCta, {
+    y: 0,
+    opacity: 1,
+    duration: 0.8,
+    ease: "back.out(1.7)",
+    scrollTrigger: {
+      trigger: "#tools-section",
+      start: "top 50%",
+      once: true,
+    },
   });
 }
 
@@ -536,5 +557,4 @@ gsap.fromTo(
     },
   },
 );
-
 
