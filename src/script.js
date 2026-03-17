@@ -43,7 +43,7 @@ document.querySelectorAll(".mobile-link").forEach((link) => {
 });
 
 // GSAP Intro & Hero Animation
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   const isProjectPage = window.location.pathname.includes("project-");
   
   if (isProjectPage) {
@@ -105,33 +105,33 @@ window.addEventListener("load", () => {
     // Step 1: Scanning Line Animation
     .to("#intro-loader-bar", {
       scaleX: 1,
-      duration: 2.5,
+      duration: 1.0,
       ease: "power2.inOut"
     })
     // Step 2: Loader fades out, Text transitions
     .to("#intro-loader-line", {
       opacity: 0,
-      duration: 0.5,
+      duration: 0.3,
       ease: "power2.inOut"
     })
     .to("#intro-status-text", {
       y: "-100%",
       opacity: 0,
-      duration: 0.5,
+      duration: 0.3,
       ease: "power2.inOut"
     }, "<")
     .to("#intro-status-complete", {
       y: "0%",
       opacity: 1,
-      duration: 0.5,
+      duration: 0.3,
       ease: "power2.inOut"
     }, "<")
     // Hold "Data analyzed" briefly
-    .to({}, { duration: 0.8 })
+    .to({}, { duration: 0.2 })
     // Step 3: Fade out status text, Fade in Welcome Message
     .to("#intro-loader-container", {
       opacity: 0,
-      duration: 0.5,
+      duration: 0.3,
       ease: "power2.inOut"
     })
     .to("#intro-welcome-text", {
@@ -140,11 +140,11 @@ window.addEventListener("load", () => {
       ease: "power2.out"
     }, "-=0.2")
     // Hold Welcome message
-    .to({}, { duration: 0.8 })
+    .to({}, { duration: 0.2 })
     // Step 4: Curtain Reveal (animate the whole overlay up)
     .to("#intro-overlay", {
       yPercent: -100,
-      duration: 1.2,
+      duration: 0.8,
       ease: "expo.inOut"
     });
 });
