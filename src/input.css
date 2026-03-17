@@ -460,6 +460,7 @@ nav.scrolled #nav-links {
 /* Clean solid background */
 body {
   background-color: #ffffff;
+  overflow-x: hidden;
 }
 
 /* Tooltip for truncated Project Cards */
