@@ -639,6 +639,46 @@ gsap.fromTo(
 // CASE STUDY: NEW MICRO-INTERACTIONS
 // ==========================================
 
+// --- Premium Problem Section Animation (1, 2, 3 cards) ---
+if (document.querySelector(".problem-grid")) {
+  const problemGrids = gsap.utils.toArray(".problem-grid");
+  problemGrids.forEach((grid) => {
+    const cards = grid.querySelectorAll(".problem-card");
+    const numbers = grid.querySelectorAll(".problem-number");
+
+    // Set initial states
+    gsap.set(cards, { autoAlpha: 0, y: 60, scale: 0.95 });
+    gsap.set(numbers, { scale: 0.5, opacity: 0 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: grid,
+        start: "top 85%",
+        toggleActions: "play none none none"
+      }
+    });
+
+    // Animate cards staggering in
+    tl.to(cards, {
+      duration: 0.9,
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      ease: "power4.out",
+      stagger: 0.15
+    });
+
+    // Pop the numbers immediately after each card starts
+    tl.to(numbers, {
+      duration: 0.6,
+      scale: 1,
+      opacity: 1,
+      ease: "back.out(2)",
+      stagger: 0.15
+    }, "<0.2");
+  });
+}
+
 // --- Reveal Elements on Scroll ---
 if (document.querySelector(".gs-reveal")) {
   const revealElements = gsap.utils.toArray(".gs-reveal");
