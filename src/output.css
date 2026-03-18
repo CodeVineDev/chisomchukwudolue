@@ -447,8 +447,14 @@
   .h-20 {
     height: calc(var(--spacing) * 20);
   }
+  .h-60 {
+    height: calc(var(--spacing) * 60);
+  }
   .h-64 {
     height: calc(var(--spacing) * 64);
+  }
+  .h-65 {
+    height: calc(var(--spacing) * 65);
   }
   .h-80 {
     height: calc(var(--spacing) * 80);
@@ -1440,6 +1446,11 @@
   .md\:h-32 {
     @media (width >= 48rem) {
       height: calc(var(--spacing) * 32);
+    }
+  }
+  .md\:h-80 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 80);
     }
   }
   .md\:w-32 {
