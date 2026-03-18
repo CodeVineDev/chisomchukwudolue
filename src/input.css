@@ -238,8 +238,7 @@ nav.scrolled #nav-links {
   #main-nav {
     width: min(92%, 300px);
     padding: 0.5rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
   }
   #nav-status {
     opacity: 1 !important;
@@ -458,6 +457,7 @@ nav.scrolled #nav-links {
 }
 
 /* Clean solid background */
+html,
 body {
   background-color: #ffffff;
   overflow-x: hidden;

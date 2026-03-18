@@ -1394,9 +1394,19 @@
       gap: calc(var(--spacing) * 4);
     }
   }
+  .md\:gap-6 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 6);
+    }
+  }
   .md\:justify-self-end {
     @media (width >= 48rem) {
       justify-self: flex-end;
+    }
+  }
+  .md\:rounded-\[40px\] {
+    @media (width >= 48rem) {
+      border-radius: 40px;
     }
   }
   .md\:p-10 {
@@ -1930,8 +1940,7 @@ nav.scrolled #nav-links {
   #main-nav {
     width: min(92%, 300px);
     padding: 0.5rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
   }
   #nav-status {
     opacity: 1 !important;
@@ -2112,7 +2121,7 @@ nav.scrolled #nav-links {
     width: 100%;
   }
 }
-body {
+html, body {
   background-color: #ffffff;
   overflow-x: hidden;
 }
