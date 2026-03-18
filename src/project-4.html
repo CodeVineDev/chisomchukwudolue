@@ -6,10 +6,14 @@
     <title>Tesla Stock Risk Analysis</title>
     <link rel="stylesheet" href="output.css" />
     <style>
+      /* *{
+        border: 2px solid red;
+      } */
       @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
     </style>
-
   </head>
+  <div id="custom-cursor" class="custom-cursor"></div>
+
   <body class="overflow-x-hidden">
     <nav
       class="flex items-center fixed top-5 left-0 right-0 z-50 rounded-[50px] justify-between p-2 w-site mx-auto border border-gray-200 bg-white/80 backdrop-blur-md transition-all duration-500"
@@ -87,8 +91,12 @@
           id="menu-toggle"
           class="lg:hidden w-10 h-10 bg-brand-purple rounded-full flex flex-col items-center justify-center gap-1.5 transition-all duration-300"
         >
-          <span class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"></span>
-          <span class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"></span>
+          <span
+            class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"
+          ></span>
         </button>
 
         <div id="nav-contact" class="hidden lg:block">
@@ -106,21 +114,32 @@
       id="mobile-menu"
       class="lg:hidden fixed top-[110px] left-0 right-0 w-[92%] mx-auto bg-white border border-gray-200 rounded-[30px] p-6 opacity-0 scale-95 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] z-100"
     >
-      <ul class="flex flex-col gap-6 font-inter text-brand-black text-xl font-light">
+      <ul
+        class="flex flex-col gap-6 font-inter text-brand-black text-xl font-light"
+      >
         <li><a href="../index.html#home" class="mobile-link">Home</a></li>
-        <li><a href="../index.html#about-section" class="mobile-link">About</a></li>
         <li>
-          <a href="../media/Chukwudolue C. Favour_CV.pdf" download class="mobile-link">Resume</a>
+          <a href="../index.html#about-section" class="mobile-link">About</a>
+        </li>
+        <li>
+          <a
+            href="../media/Chukwudolue C. Favour_CV.pdf"
+            download
+            class="mobile-link"
+            >Resume</a
+          >
         </li>
         <li class="pt-4 border-t border-gray-100">
-          <a href="../index.html#projects-section" class="text-brand-purple font-medium">My Projects</a>
+          <a
+            href="../index.html#projects-section"
+            class="text-brand-purple font-medium"
+            >My Projects</a
+          >
         </li>
       </ul>
     </div>
 
     <main id="home">
-      <div id="custom-cursor" class="custom-cursor"></div>
-
       <!-- Case Study Title Header -->
       <section class="w-site-2 mx-auto pt-32 pb-16 md:pt-48 md:pb-24">
         <h1
@@ -153,66 +172,174 @@
 
         <!-- Right: 2x3 Grid of Cards -->
         <div class="grid grid-cols-2 gap-6 gs-reveal">
-          <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl relative group cursor-pointer" tabindex="0">
+          <div
+            class="bg-gray-50 border border-gray-100 p-6 rounded-2xl relative group cursor-pointer"
+            tabindex="0"
+          >
             <div class="text-brand-purple mb-2">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                ></path>
               </svg>
             </div>
-            <h3 class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1">Project Type</h3>
-            <p class="font-inter font-medium text-brand-black truncate">Stock Risk Analysis</p>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Project Type
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              Stock Risk Analysis
+            </p>
             <div class="card-tooltip">Financial Market Analysis</div>
           </div>
 
           <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl">
             <div class="text-brand-purple mb-2">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
               </svg>
             </div>
-            <h3 class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1">Industry</h3>
-            <p class="font-inter font-medium text-brand-black truncate">Finance</p>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Industry
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              Finance
+            </p>
           </div>
 
           <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl">
             <div class="text-brand-purple mb-2">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
               </svg>
             </div>
-            <h3 class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1">Timeline</h3>
-            <p class="font-inter font-medium text-brand-black truncate">February 2026</p>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Timeline
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              February 2026
+            </p>
           </div>
 
           <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl">
             <div class="text-brand-purple mb-2">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                ></path>
               </svg>
             </div>
-            <h3 class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1">Role</h3>
-            <p class="font-inter font-medium text-brand-black truncate">Data Analyst</p>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Role
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              Data Analyst
+            </p>
           </div>
 
-          <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl relative group cursor-pointer" tabindex="0">
+          <div
+            class="bg-gray-50 border border-gray-100 p-6 rounded-2xl relative group cursor-pointer"
+            tabindex="0"
+          >
             <div class="text-brand-purple mb-2">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                ></path>
               </svg>
             </div>
-            <h3 class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1">Tools Used</h3>
-            <p class="font-inter font-medium text-brand-black truncate">Excel, Power BI</p>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Tools Used
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              Excel, Power BI
+            </p>
             <div class="card-tooltip">Excel · Power BI</div>
           </div>
 
-          <div class="bg-brand-purple/10 border border-brand-purple/20 p-6 rounded-2xl relative group cursor-pointer" tabindex="0">
+          <div
+            class="bg-brand-purple/10 border border-brand-purple/20 p-6 rounded-2xl relative group cursor-pointer"
+            tabindex="0"
+          >
             <div class="text-brand-purple mb-2">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                ></path>
               </svg>
             </div>
-            <h3 class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1">Key Result</h3>
-            <p class="font-inter font-medium text-brand-purple truncate" title="Risk Dashboard Built">Risk Dashboard Built</p>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Key Result
+            </h3>
+            <p
+              class="font-inter font-medium text-brand-purple truncate"
+              title="Risk Dashboard Built"
+            >
+              Risk Dashboard Built
+            </p>
             <div class="card-tooltip">Interactive Power BI Risk Dashboard</div>
           </div>
         </div>
@@ -221,31 +348,63 @@
       <!-- 2. PROBLEM SECTION -->
       <section class="w-site-2 mx-auto py-24 md:py-32 border-t border-gray-100">
         <div class="max-w-4xl mx-auto text-center mb-16 gs-reveal">
-          <h2 class="font-inter text-sm tracking-[0.2em] text-brand-black/50 uppercase mb-4">
+          <h2
+            class="font-inter text-sm tracking-[0.2em] text-brand-black/50 uppercase mb-4"
+          >
             The Problem
           </h2>
-          <p class="font-inter text-2xl md:text-4xl font-light text-brand-black leading-tight">
-            Raw stock data tells no story on its own. Tesla's 15-year price history needed structure, the right indicators, and a clear way to communicate risk.
+          <p
+            class="font-inter text-2xl md:text-4xl font-light text-brand-black leading-tight"
+          >
+            Raw stock data tells no story on its own. Tesla's 15-year price
+            history needed structure, the right indicators, and a clear way to
+            communicate risk.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white border border-gray-100 rounded-[32px] p-8 md:p-10 flex flex-col shadow-sm gs-reveal hover:-translate-y-2 transition-transform duration-300">
-            <span class="font-antonio text-5xl md:text-6xl text-gray-200 font-bold mb-6">01</span>
-            <p class="font-inter text-brand-black font-medium text-xl leading-relaxed">
-              No framework for measuring stock price volatility and risk over time
+          <div
+            class="bg-white border border-gray-100 rounded-[32px] p-8 md:p-10 flex flex-col shadow-sm gs-reveal hover:-translate-y-2 transition-transform duration-300"
+          >
+            <span
+              class="font-antonio text-5xl md:text-6xl text-gray-200 font-bold mb-6"
+              >01</span
+            >
+            <p
+              class="font-inter text-brand-black font-medium text-xl leading-relaxed"
+            >
+              No framework for measuring stock price volatility and risk over
+              time
             </p>
           </div>
-          <div class="bg-white border border-gray-100 rounded-[32px] p-8 md:p-10 flex flex-col shadow-sm gs-reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 100ms;">
-            <span class="font-antonio text-5xl md:text-6xl text-gray-200 font-bold mb-6">02</span>
-            <p class="font-inter text-brand-black font-medium text-xl leading-relaxed">
-              Seasonal and quarterly risk patterns hidden within unstructured data
+          <div
+            class="bg-white border border-gray-100 rounded-[32px] p-8 md:p-10 flex flex-col shadow-sm gs-reveal hover:-translate-y-2 transition-transform duration-300"
+            style="transition-delay: 100ms"
+          >
+            <span
+              class="font-antonio text-5xl md:text-6xl text-gray-200 font-bold mb-6"
+              >02</span
+            >
+            <p
+              class="font-inter text-brand-black font-medium text-xl leading-relaxed"
+            >
+              Seasonal and quarterly risk patterns hidden within unstructured
+              data
             </p>
           </div>
-          <div class="bg-white border border-gray-100 rounded-[32px] p-8 md:p-10 flex flex-col shadow-sm gs-reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 200ms;">
-            <span class="font-antonio text-5xl md:text-6xl text-gray-200 font-bold mb-6">03</span>
-            <p class="font-inter text-brand-black font-medium text-xl leading-relaxed">
-              Lacked an interactive dashboard to surface financial insights clearly
+          <div
+            class="bg-white border border-gray-100 rounded-[32px] p-8 md:p-10 flex flex-col shadow-sm gs-reveal hover:-translate-y-2 transition-transform duration-300"
+            style="transition-delay: 200ms"
+          >
+            <span
+              class="font-antonio text-5xl md:text-6xl text-gray-200 font-bold mb-6"
+              >03</span
+            >
+            <p
+              class="font-inter text-brand-black font-medium text-xl leading-relaxed"
+            >
+              Lacked an interactive dashboard to surface financial insights
+              clearly
             </p>
           </div>
         </div>
@@ -265,91 +424,142 @@
         <div
           class="hidden md:flex justify-between items-center w-full max-w-5xl mx-auto mb-20 relative gs-reveal"
         >
-          <div class="absolute left-0 right-0 h-px bg-gray-300 top-1/2 -translate-y-1/2 z-0"></div>
-          <div class="bg-white px-6 py-3 rounded-full border border-gray-200 z-10 font-antonio uppercase tracking-wide shadow-sm text-sm">
+          <div
+            class="absolute left-0 right-0 h-px bg-gray-300 top-1/2 -translate-y-1/2 z-0"
+          ></div>
+          <div
+            class="bg-white px-6 py-3 rounded-full border border-gray-200 z-10 font-antonio uppercase tracking-wide shadow-sm text-sm"
+          >
             Collection
           </div>
-          <div class="bg-white px-6 py-3 rounded-full border border-brand-purple text-brand-purple z-10 font-antonio uppercase tracking-wide shadow-sm text-sm">
+          <div
+            class="bg-white px-6 py-3 rounded-full border border-brand-purple text-brand-purple z-10 font-antonio uppercase tracking-wide shadow-sm text-sm"
+          >
             Cleaning
           </div>
-          <div class="bg-white px-6 py-3 rounded-full border border-gray-200 z-10 font-antonio uppercase tracking-wide shadow-sm text-sm">
+          <div
+            class="bg-white px-6 py-3 rounded-full border border-gray-200 z-10 font-antonio uppercase tracking-wide shadow-sm text-sm"
+          >
             Analysis
           </div>
-          <div class="bg-brand-purple text-white px-6 py-3 rounded-full z-10 font-antonio uppercase tracking-wide shadow-md text-sm">
+          <div
+            class="bg-brand-purple text-white px-6 py-3 rounded-full z-10 font-antonio uppercase tracking-wide shadow-md text-sm"
+          >
             Dashboarding
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Step 1 -->
-          <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full gs-reveal hover-card">
-            <div class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-4">
+          <div
+            class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full gs-reveal hover-card"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-4"
+            >
               <span class="font-antonio font-bold">1</span>
             </div>
-            <h3 class="font-inter font-semibold text-xl mb-3">Data Collection</h3>
-            <ul class="font-inter font-light text-brand-black/70 text-sm space-y-2 mb-6 grow">
+            <h3 class="font-inter font-semibold text-xl mb-3">
+              Data Collection
+            </h3>
+            <ul
+              class="font-inter font-light text-brand-black/70 text-sm space-y-2 mb-6 grow"
+            >
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> Tesla data 2010–2025
+                <span class="text-brand-purple mt-0.5">•</span> Tesla data
+                2010–2025
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> OHLC, volume & daily return
+                <span class="text-brand-purple mt-0.5">•</span> OHLC, volume &
+                daily return
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> MA7, MA30, MA90 & volatility
+                <span class="text-brand-purple mt-0.5">•</span> MA7, MA30, MA90
+                & volatility
               </li>
             </ul>
           </div>
           <!-- Step 2 -->
-          <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full gs-reveal hover-card">
-            <div class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-4">
+          <div
+            class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full gs-reveal hover-card"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-4"
+            >
               <span class="font-antonio font-bold">2</span>
             </div>
-            <h3 class="font-inter font-semibold text-xl mb-3">Data Cleaning & Prep</h3>
-            <ul class="font-inter font-light text-brand-black/70 text-sm space-y-2 mb-6 grow">
+            <h3 class="font-inter font-semibold text-xl mb-3">
+              Data Cleaning & Prep
+            </h3>
+            <ul
+              class="font-inter font-light text-brand-black/70 text-sm space-y-2 mb-6 grow"
+            >
               <li class="flex items-start gap-2">
                 <span class="text-brand-purple mt-0.5">•</span> Used Power Query
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> Validated types & dates
+                <span class="text-brand-purple mt-0.5">•</span> Validated types
+                & dates
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> Confirmed no duplicates
+                <span class="text-brand-purple mt-0.5">•</span> Confirmed no
+                duplicates
               </li>
             </ul>
           </div>
           <!-- Step 3 -->
-          <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full gs-reveal hover-card">
-            <div class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-4">
+          <div
+            class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full gs-reveal hover-card"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-4"
+            >
               <span class="font-antonio font-bold">3</span>
             </div>
             <h3 class="font-inter font-semibold text-xl mb-3">Risk Analysis</h3>
-            <ul class="font-inter font-light text-brand-black/70 text-sm space-y-2 mb-6 grow">
+            <ul
+              class="font-inter font-light text-brand-black/70 text-sm space-y-2 mb-6 grow"
+            >
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> Time-series price analysis
+                <span class="text-brand-purple mt-0.5">•</span> Time-series
+                price analysis
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> Return distribution study
+                <span class="text-brand-purple mt-0.5">•</span> Return
+                distribution study
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> Developed 5 core KPIs
+                <span class="text-brand-purple mt-0.5">•</span> Developed 5 core
+                KPIs
               </li>
             </ul>
           </div>
           <!-- Step 4 -->
-          <div class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full gs-reveal hover-card">
-            <div class="w-10 h-10 rounded-full bg-brand-purple flex items-center justify-center text-white mb-4">
+          <div
+            class="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full gs-reveal hover-card"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-brand-purple flex items-center justify-center text-white mb-4"
+            >
               <span class="font-antonio font-bold">4</span>
             </div>
-            <h3 class="font-inter font-semibold text-xl mb-3">Dashboard Design</h3>
-            <ul class="font-inter font-light text-brand-black/70 text-sm space-y-2 mb-6 grow">
+            <h3 class="font-inter font-semibold text-xl mb-3">
+              Dashboard Design
+            </h3>
+            <ul
+              class="font-inter font-light text-brand-black/70 text-sm space-y-2 mb-6 grow"
+            >
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> Built in Power BI
+                <span class="text-brand-purple mt-0.5">•</span> Built in Power
+                BI
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> Visualised volatility trends
+                <span class="text-brand-purple mt-0.5">•</span> Visualised
+                volatility trends
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-brand-purple mt-0.5">•</span> Plotted return distributions
+                <span class="text-brand-purple mt-0.5">•</span> Plotted return
+                distributions
               </li>
             </ul>
           </div>
@@ -365,8 +575,12 @@
         </h2>
 
         <!-- Showcase 1 -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 gs-reveal">
-          <div class="lg:col-span-8 w-full aspect-video bg-gray-200 rounded-3xl flex items-center justify-center shadow-md overflow-hidden hover-image">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 gs-reveal"
+        >
+          <div
+            class="lg:col-span-8 w-full aspect-video bg-gray-200 rounded-3xl flex items-center justify-center shadow-md overflow-hidden hover-image"
+          >
             <img
               src="../media/project-4 files/Tesla stock risk.png"
               alt="Tesla Stock Risk Dashboard"
@@ -374,24 +588,33 @@
             />
           </div>
           <div class="lg:col-span-4 flex flex-col justify-center space-y-8">
-            <h3 class="font-antonio text-3xl md:text-5xl font-bold uppercase text-brand-black">
+            <h3
+              class="font-antonio text-3xl md:text-5xl font-bold uppercase text-brand-black"
+            >
               Interactive Risk Dashboard
             </h3>
             <div class="space-y-6">
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
-                  5 KPIs covering volume, avg. close, return, price range and volatility
+                  5 KPIs covering volume, avg. close, return, price range and
+                  volatility
                 </p>
               </div>
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Sliceable by year, quarter, month and day of week
                 </p>
               </div>
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Built in Power BI for stakeholder-ready reporting
                 </p>
@@ -401,33 +624,47 @@
         </div>
 
         <!-- Showcase 2 -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 gs-reveal">
-          <div class="lg:col-span-4 order-2 lg:order-1 flex flex-col justify-center space-y-8">
-            <h3 class="font-antonio text-3xl md:text-5xl font-bold uppercase text-brand-black">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 gs-reveal"
+        >
+          <div
+            class="lg:col-span-4 order-2 lg:order-1 flex flex-col justify-center space-y-8"
+          >
+            <h3
+              class="font-antonio text-3xl md:text-5xl font-bold uppercase text-brand-black"
+            >
               Moving Average Trends
             </h3>
             <div class="space-y-6">
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   MA7, MA30 and MA90 tracked against closing price
                 </p>
               </div>
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Crossovers surface trend reversals and momentum shifts
                 </p>
               </div>
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Long-term growth periods clearly captured
                 </p>
               </div>
             </div>
           </div>
-          <div class="lg:col-span-8 order-1 lg:order-2 w-full aspect-video bg-gray-200 rounded-3xl flex items-center justify-center shadow-md overflow-hidden hover-image">
+          <div
+            class="lg:col-span-8 order-1 lg:order-2 w-full aspect-video bg-gray-200 rounded-3xl flex items-center justify-center shadow-md overflow-hidden hover-image"
+          >
             <img
               src="../media/project-4 files/Moving Average Crossover.png"
               alt="Moving Average Crossover Chart"
@@ -437,8 +674,12 @@
         </div>
 
         <!-- Showcase 3 -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 gs-reveal">
-          <div class="lg:col-span-8 w-full aspect-video bg-gray-200 rounded-3xl flex items-center justify-center shadow-md overflow-hidden hover-image">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 gs-reveal"
+        >
+          <div
+            class="lg:col-span-8 w-full aspect-video bg-gray-200 rounded-3xl flex items-center justify-center shadow-md overflow-hidden hover-image"
+          >
             <img
               src="../media/project-4 files/Yearly Volatility.png"
               alt="Yearly Volatility Trend"
@@ -446,24 +687,32 @@
             />
           </div>
           <div class="lg:col-span-4 flex flex-col justify-center space-y-8">
-            <h3 class="font-antonio text-3xl md:text-5xl font-bold uppercase text-brand-black">
+            <h3
+              class="font-antonio text-3xl md:text-5xl font-bold uppercase text-brand-black"
+            >
               Volatility Trends
             </h3>
             <div class="space-y-6">
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Year-on-year view highlights distinct high-risk periods
                 </p>
               </div>
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Quarterly breakdown exposes seasonal instability patterns
                 </p>
               </div>
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Price range spikes flag elevated daily market uncertainty
                 </p>
@@ -473,33 +722,47 @@
         </div>
 
         <!-- Showcase 4 -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center gs-reveal">
-          <div class="lg:col-span-4 order-2 lg:order-1 flex flex-col justify-center space-y-8">
-            <h3 class="font-antonio text-3xl md:text-5xl font-bold uppercase text-brand-black">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center gs-reveal"
+        >
+          <div
+            class="lg:col-span-4 order-2 lg:order-1 flex flex-col justify-center space-y-8"
+          >
+            <h3
+              class="font-antonio text-3xl md:text-5xl font-bold uppercase text-brand-black"
+            >
               Return Distribution
             </h3>
             <div class="space-y-6">
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Shows how frequently large price swings occur
                 </p>
               </div>
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Reveals skewness and tail risk in trading history
                 </p>
               </div>
               <div class="flex items-start gap-4">
-                <div class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"></div>
+                <div
+                  class="w-2 h-2 rounded-full bg-brand-purple mt-2 shrink-0"
+                ></div>
                 <p class="font-inter font-light text-lg">
                   Contextualises avg. return against volatility exposure
                 </p>
               </div>
             </div>
           </div>
-          <div class="lg:col-span-8 order-1 lg:order-2 w-full aspect-video bg-gray-200 rounded-3xl flex items-center justify-center shadow-md overflow-hidden hover-image">
+          <div
+            class="lg:col-span-8 order-1 lg:order-2 w-full aspect-video bg-gray-200 rounded-3xl flex items-center justify-center shadow-md overflow-hidden hover-image"
+          >
             <img
               src="../media/project-4 files/Daily Return Distribution.png"
               alt="Daily Return Distribution Chart"
@@ -520,15 +783,34 @@
         </div>
 
         <!-- Impact Statement -->
-        <div class="bg-brand-purple/5 border border-brand-purple/20 rounded-[40px] p-10 md:p-16 mb-24 relative overflow-hidden gs-reveal">
-           <!-- Decorative Quote Icon -->
-           <svg class="absolute top-8 left-8 md:top-12 md:left-12 w-20 h-20 md:w-32 md:h-32 text-brand-purple/10" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"></path></svg>
-           <div class="relative z-10 max-w-4xl mx-auto text-center">
-             <h3 class="font-inter text-sm tracking-[0.3em] font-medium text-brand-purple uppercase mb-6 md:mb-8">Business Value Delivered</h3>
-             <p class="font-inter text-2xl md:text-4xl lg:text-5xl font-light text-brand-black leading-tight">
-               "This project provides a reusable framework for monitoring stock trends, volatility, and trading risk — transforming 15 years of raw financial data into clear, decision-ready insight."
-             </p>
-           </div>
+        <div
+          class="bg-brand-purple/5 border border-brand-purple/20 rounded-[40px] p-10 md:p-16 mb-24 relative overflow-hidden gs-reveal"
+        >
+          <!-- Decorative Quote Icon -->
+          <svg
+            class="absolute top-8 left-8 md:top-12 md:left-12 w-20 h-20 md:w-32 md:h-32 text-brand-purple/10"
+            fill="currentColor"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+          >
+            <path
+              d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
+            ></path>
+          </svg>
+          <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <h3
+              class="font-inter text-sm tracking-[0.3em] font-medium text-brand-purple uppercase mb-6 md:mb-8"
+            >
+              Business Value Delivered
+            </h3>
+            <p
+              class="font-inter text-2xl md:text-4xl lg:text-5xl font-light text-brand-black leading-tight"
+            >
+              "This project provides a reusable framework for monitoring stock
+              trends, volatility, and trading risk — transforming 15 years of
+              raw financial data into clear, decision-ready insight."
+            </p>
+          </div>
         </div>
 
         <!-- Before & After -->
@@ -602,9 +884,9 @@
           <p
             class="font-inter text-2xl md:text-3xl font-light leading-snug mb-12 relative z-10"
           >
-            Tesla's volatility follows identifiable yearly and seasonal patterns —
-            making structured risk analysis a powerful tool for financial monitoring
-            and investment evaluation.
+            Tesla's volatility follows identifiable yearly and seasonal patterns
+            — making structured risk analysis a powerful tool for financial
+            monitoring and investment evaluation.
           </p>
 
           <div
@@ -615,20 +897,44 @@
             </h3>
             <ul class="font-inter font-light text-white/90 space-y-3">
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-brand-purple shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                <svg
+                  class="w-5 h-5 text-brand-purple shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
                 </svg>
                 Add technical indicators such as RSI and Bollinger Bands
               </li>
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-brand-purple shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                <svg
+                  class="w-5 h-5 text-brand-purple shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
                 </svg>
                 Benchmark Tesla against other major technology stocks
               </li>
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-brand-purple shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                <svg
+                  class="w-5 h-5 text-brand-purple shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  ></path>
                 </svg>
                 Expand with predictive modelling to forecast volatility trends
               </li>
@@ -739,7 +1045,9 @@
           class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-8 border-b-2 border-brand-white"
         >
           <div class="flex flex-col space-y-2">
-            <h3 class="footer-title font-antonio text-2xl font-bold uppercase">Email</h3>
+            <h3 class="footer-title font-antonio text-2xl font-bold uppercase">
+              Email
+            </h3>
             <a
               href="mailto:chisomfavor003@gmail.com"
               class="font-inter font-light text-xl hover:text-brand-black transition-colors"
@@ -748,7 +1056,9 @@
           </div>
 
           <div class="flex flex-col space-y-2">
-            <h3 class="footer-title font-antonio text-2xl font-bold uppercase">Number</h3>
+            <h3 class="footer-title font-antonio text-2xl font-bold uppercase">
+              Number
+            </h3>
             <a
               href="tel:+2349026621842"
               class="font-inter font-light text-xl hover:text-brand-black transition-colors"
@@ -757,7 +1067,11 @@
           </div>
 
           <div class="flex flex-col space-y-2 md:justify-self-end">
-            <h3 class="footer-title font-antonio text-2xl font-bold uppercase md:text-right">Socials</h3>
+            <h3
+              class="footer-title font-antonio text-2xl font-bold uppercase md:text-right"
+            >
+              Socials
+            </h3>
             <div class="flex gap-6 font-inter font-light text-xl">
               <a
                 href="https://www.linkedin.com/in/chukwudolue-chisom"
@@ -779,7 +1093,9 @@
           <div>&copy; 2026 Chisom C. Favour. All Rights Reserved.</div>
           <div>
             Designed by
-            <a href="https://www.instagram.com/theofficialcodevine/">Codevine</a>
+            <a href="https://www.instagram.com/theofficialcodevine/"
+              >Codevine</a
+            >
           </div>
         </div>
       </div>
