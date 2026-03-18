@@ -12,7 +12,7 @@ nav.scrolled #nav-links {
   --width-site-2: min(90%, 1150px);
   --text-pc: clamp(1rem, 5vw, 1.7rem);
   --text-pc-3: clamp(2.8rem, 5vw, 4rem);
-  --text-pc-2: clamp(3rem, 10vw, 7.6rem);
+  --text-pc-2: clamp(3rem, 9vw, 7.6rem);
   --font-inter: "Inter", sans-serif;
   --font-antonio: "Antonio", sans-serif;
   --font-playfair: "Playfair Display", serif;
@@ -176,17 +176,12 @@ nav.scrolled #nav-links {
   backdrop-filter: blur(15px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
-/* @media (max-width: 970px) {
-  body {
-    border: 2px solid red;
-  }
-} */
 #hero-section {
   height: max-content;
 }
-.flip-card-inner {
-  aspect-ratio: 3/4;
-}
+/* #hero-section *{
+  border: 2px solid red;
+} */
 
 /* DROPDOWNS / ACCORDIONS */
 .skill-check {
@@ -254,9 +249,7 @@ nav.scrolled #nav-links {
   #nav-links {
     display: none !important;
   }
-  .flip-card-inner {
-    aspect-ratio: 2/3;
-  }
+ 
    /* 1. The Regular Dot */
 
   /* 2. The Image Follower */

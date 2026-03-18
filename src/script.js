@@ -159,7 +159,7 @@ mm.add("(min-width: 1024px)", () => {
   const aboutTl = gsap.timeline({
     scrollTrigger: {
       trigger: "#about-section",
-      start: "top bottom",
+      start: "10% bottom",
       end: "-20% top", // Animation finishes when about section reaches center
       scrub: 1,
     },
@@ -168,7 +168,7 @@ mm.add("(min-width: 1024px)", () => {
   aboutTl
     .to("#hero-col-2", {
       x: "25vw",
-      y: "110vh",
+      y: "105vh",
       rotationY: 180,
       rotationZ: 5,
       ease: "none",
