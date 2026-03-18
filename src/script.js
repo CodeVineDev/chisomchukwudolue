@@ -45,7 +45,7 @@ document.querySelectorAll(".mobile-link").forEach((link) => {
 // GSAP Intro & Hero Animation
 window.addEventListener("DOMContentLoaded", () => {
   const isProjectPage = window.location.pathname.includes("project-");
-  
+
   if (isProjectPage) {
     // Skip intro on project pages
     document.body.style.overflow = "";
@@ -60,15 +60,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // The function to play the original Hero animations
   function playHeroAnimation() {
-    const heroTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.2 } });
+    const heroTl = gsap.timeline({
+      defaults: { ease: "power4.out", duration: 1.2 },
+    });
 
-    heroTl.to("#hero-col-2", {
-      opacity: 1,
-      rotationX: 0,
-      scale: 1,
-      duration: 1.5,
-      startAt: { rotationX: -120, scale: 0 }, // Reversed vertical flip
-    })
+    heroTl
+      .to("#hero-col-2", {
+        opacity: 1,
+        rotationX: 0,
+        scale: 1,
+        duration: 1.5,
+        startAt: { rotationX: -120, scale: 0 }, // Reversed vertical flip
+      })
       .to(
         "#hero-col-1",
         {
@@ -98,7 +101,7 @@ window.addEventListener("DOMContentLoaded", () => {
       document.getElementById("intro-overlay").style.display = "none";
       // Trigger Hero Animation
       playHeroAnimation();
-    }
+    },
   });
 
   introTl
@@ -106,46 +109,58 @@ window.addEventListener("DOMContentLoaded", () => {
     .to("#intro-loader-bar", {
       scaleX: 1,
       duration: 1.0,
-      ease: "power2.inOut"
+      ease: "power2.inOut",
     })
     // Step 2: Loader fades out, Text transitions
     .to("#intro-loader-line", {
       opacity: 0,
       duration: 0.3,
-      ease: "power2.inOut"
+      ease: "power2.inOut",
     })
-    .to("#intro-status-text", {
-      y: "-100%",
-      opacity: 0,
-      duration: 0.3,
-      ease: "power2.inOut"
-    }, "<")
-    .to("#intro-status-complete", {
-      y: "0%",
-      opacity: 1,
-      duration: 0.3,
-      ease: "power2.inOut"
-    }, "<")
+    .to(
+      "#intro-status-text",
+      {
+        y: "-100%",
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.inOut",
+      },
+      "<",
+    )
+    .to(
+      "#intro-status-complete",
+      {
+        y: "0%",
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.inOut",
+      },
+      "<",
+    )
     // Hold "Data analyzed" briefly
     .to({}, { duration: 0.2 })
     // Step 3: Fade out status text, Fade in Welcome Message
     .to("#intro-loader-container", {
       opacity: 0,
       duration: 0.3,
-      ease: "power2.inOut"
+      ease: "power2.inOut",
     })
-    .to("#intro-welcome-text", {
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.out"
-    }, "-=0.2")
+    .to(
+      "#intro-welcome-text",
+      {
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "-=0.2",
+    )
     // Hold Welcome message
     .to({}, { duration: 0.2 })
     // Step 4: Curtain Reveal (animate the whole overlay up)
     .to("#intro-overlay", {
       yPercent: -100,
       duration: 0.8,
-      ease: "expo.inOut"
+      ease: "expo.inOut",
     });
 });
 
@@ -159,7 +174,7 @@ mm.add("(min-width: 1024px)", () => {
   const aboutTl = gsap.timeline({
     scrollTrigger: {
       trigger: "#about-section",
-      start: "10% bottom",
+      start: "top bottom",
       end: "-20% top", // Animation finishes when about section reaches center
       scrub: 1,
     },
@@ -168,7 +183,7 @@ mm.add("(min-width: 1024px)", () => {
   aboutTl
     .to("#hero-col-2", {
       x: "25vw",
-      y: "105vh",
+      y: "110vh",
       rotationY: 180,
       rotationZ: 5,
       ease: "none",
@@ -235,14 +250,15 @@ document.querySelectorAll(".accordion-header").forEach((header) => {
 const cursorMM = gsap.matchMedia();
 
 cursorMM.add("(min-width: 1025px)", () => {
-
   // 1. Initial Setup
   const imgFollower = document.getElementById("cursor-image-follower");
 
   const techImage = document.getElementById("cursor-tech-img");
   const commImage = document.getElementById("cursor-comm-img");
   const accordionTitles = document.querySelectorAll(".skill-accordion");
-  const accordionSection = document.getElementById("skills-accordion-container");
+  const accordionSection = document.getElementById(
+    "skills-accordion-container",
+  );
 
   gsap.set([mainCursor, imgFollower], { xPercent: -50, yPercent: -50 });
 
@@ -268,7 +284,6 @@ cursorMM.add("(min-width: 1025px)", () => {
   // 3. Hover Effects
   if (accordionSection) {
     accordionTitles.forEach((header, index) => {
-
       header.addEventListener("mouseenter", () => {
         const target = index === 0 ? techImage : commImage;
         const other = index === 0 ? commImage : techImage;
@@ -300,7 +315,6 @@ cursorMM.add("(min-width: 1025px)", () => {
       });
 
       header.addEventListener("mouseleave", () => {
-
         gsap.to([techImage, commImage], {
           opacity: 0,
           clipPath: "circle(0% at center)",
@@ -320,10 +334,8 @@ cursorMM.add("(min-width: 1025px)", () => {
           overwrite: true,
         });
       });
-
     });
   }
-
 });
 // --- PROJECTS SECTION REVEAL & STACKED SCROLL INTERACTION ---
 gsap.registerPlugin(ScrollTrigger);
@@ -370,7 +382,9 @@ if (projectsSection && projectCards.length > 0) {
 
   // Responsive pinning: wrapper on laptop+, section on mobile
   const isMobile = window.innerWidth < 1024;
-  const pinTarget = isMobile ? projectsSection : document.querySelector(".projects-wrapper");
+  const pinTarget = isMobile
+    ? projectsSection
+    : document.querySelector(".projects-wrapper");
   const pinTrigger = isMobile ? "#projects-section" : ".projects-wrapper";
   const pinStart = isMobile ? "top top" : "top 5%";
 
@@ -654,8 +668,8 @@ if (document.querySelector(".problem-grid")) {
       scrollTrigger: {
         trigger: grid,
         start: "top 85%",
-        toggleActions: "play none none none"
-      }
+        toggleActions: "play none none none",
+      },
     });
 
     // Animate cards staggering in
@@ -665,17 +679,21 @@ if (document.querySelector(".problem-grid")) {
       y: 0,
       scale: 1,
       ease: "power4.out",
-      stagger: 0.15
+      stagger: 0.15,
     });
 
     // Pop the numbers immediately after each card starts
-    tl.to(numbers, {
-      duration: 0.6,
-      scale: 1,
-      opacity: 1,
-      ease: "back.out(2)",
-      stagger: 0.15
-    }, "<0.2");
+    tl.to(
+      numbers,
+      {
+        duration: 0.6,
+        scale: 1,
+        opacity: 1,
+        ease: "back.out(2)",
+        stagger: 0.15,
+      },
+      "<0.2",
+    );
   });
 }
 
@@ -694,9 +712,9 @@ if (document.querySelector(".gs-reveal")) {
         scrollTrigger: {
           trigger: elem,
           start: "top 85%",
-          toggleActions: "play none none none"
-        }
-      }
+          toggleActions: "play none none none",
+        },
+      },
     );
   });
 }
@@ -719,12 +737,13 @@ if (document.querySelector(".number-counter")) {
         scrollTrigger: {
           trigger: counter,
           start: "top 85%",
-          toggleActions: "play none none none"
+          toggleActions: "play none none none",
         },
         onUpdate: function () {
-          counter.innerHTML = prefix + Math.ceil(this.targets()[0].innerHTML) + suffix;
-        }
-      }
+          counter.innerHTML =
+            prefix + Math.ceil(this.targets()[0].innerHTML) + suffix;
+        },
+      },
     );
   });
 }
@@ -733,19 +752,29 @@ if (document.querySelector(".number-counter")) {
 const hoverImages = gsap.utils.toArray(".hover-image");
 hoverImages.forEach((img) => {
   img.addEventListener("mouseenter", () => {
-     gsap.to(img, { scale: 1.02, duration: 0.4, ease: "power2.out" });
+    gsap.to(img, { scale: 1.02, duration: 0.4, ease: "power2.out" });
   });
   img.addEventListener("mouseleave", () => {
-     gsap.to(img, { scale: 1, duration: 0.4, ease: "power2.out" });
+    gsap.to(img, { scale: 1, duration: 0.4, ease: "power2.out" });
   });
 });
 
 const hoverCards = gsap.utils.toArray(".hover-card");
 hoverCards.forEach((card) => {
   card.addEventListener("mouseenter", () => {
-     gsap.to(card, { y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)", duration: 0.3, ease: "power2.out" });
+    gsap.to(card, {
+      y: -5,
+      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+      duration: 0.3,
+      ease: "power2.out",
+    });
   });
   card.addEventListener("mouseleave", () => {
-     gsap.to(card, { y: 0, boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)", duration: 0.3, ease: "power2.out" });
+    gsap.to(card, {
+      y: 0,
+      boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      duration: 0.3,
+      ease: "power2.out",
+    });
   });
 });
