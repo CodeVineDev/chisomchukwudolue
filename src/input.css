@@ -11,8 +11,8 @@ nav.scrolled #nav-links {
   --width-site: min(97%, 500px);
   --width-site-2: min(90%, 1150px);
   --text-pc: clamp(1rem, 5vw, 1.7rem);
-  --text-pc-3: clamp(2.8rem, 5vw, 4rem);
-  --text-pc-2: clamp(3rem, 9vw, 7.6rem);
+  --text-pc-3: clamp(2rem, 6vw, 4rem);
+  --text-pc-2: clamp(2.5rem, 8vw, 7.6rem);
   --font-inter: "Inter", sans-serif;
   --font-antonio: "Antonio", sans-serif;
   --font-playfair: "Playfair Display", serif;
