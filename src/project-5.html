@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 5 - Temu Ordering & Delivery Optimisation</title>
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../media/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../media/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../media/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../media/site.webmanifest" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <nav
+      class="flex items-center fixed top-5 left-0 right-0 z-50 rounded-[50px] justify-between p-2 w-site mx-auto border border-gray-200 bg-white/80 backdrop-blur-md transition-all duration-500"
+      id="main-nav"
+    >
+      <!-- Logo -->
+      <a href="#home" class="flex items-center shrink-0">
+        <img
+          class="w-10 h-10 rounded-full object-cover"
+          src="../media/chisom.webp"
+          alt="logo"
+        />
+      </a>
+
+      <!-- Center Content: Status on Mobile, Links on Desktop -->
+      <div
+        class="relative overflow-hidden h-8 flex grow items-center justify-center min-w-[150px]"
+      >
+        <!-- Links: hidden lg:flex ensures they only show on laptop -->
+        <ul
+          id="nav-links"
+          class="hidden lg:flex gap-6 font-inter text-brand-black text-md font-light tracking-wide transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+        >
+          <li>
+            <a href="../index.html" class="nav-link-cube"
+              ><div class="cube-inner">
+                <span>Home</span><span class="text-brand-purple">Home</span>
+              </div></a
+            >
+          </li>
+          <li>
+            <a href="../index.html#about-section" class="nav-link-cube"
+              ><div class="cube-inner">
+                <span>About</span><span class="text-brand-purple">About</span>
+              </div></a
+            >
+          </li>
+          <li>
+            <a
+              href="../media/Chukwudolue C. Favour_CV.pdf"
+              download
+              class="nav-link-cube"
+              ><div class="cube-inner">
+                <span>Resume</span><span class="text-brand-purple">Resume</span>
+              </div></a
+            >
+          </li>
+        </ul>
+
+        <!-- Status: Center-aligned and visible by default on mobile -->
+        <div
+          id="nav-status"
+          class="absolute inset-0 flex items-center justify-center gap-2 lg:gap-4"
+        >
+          <!-- The Cubic Wrapper -->
+          <a
+            href="../index.html#contact-section"
+            class="nav-link-cube pointer-events-auto"
+          >
+            <div class="cube-inner">
+              <span
+                class="font-inter text-sm lg:text-md font-light text-brand-black whitespace-nowrap"
+              >
+                Available for Work
+              </span>
+              <span
+                class="font-inter text-sm lg:text-md font-light text-brand-purple whitespace-nowrap"
+              >
+                Available for Work
+              </span>
+            </div>
+          </a>
+
+          <div class="w-2 h-2 bg-green-500 rounded-full heartbeat-dot"></div>
+        </div>
+      </div>
+
+      <!-- Right Side (Toggle/Contact) -->
+      <div class="flex items-center justify-end">
+        <button
+          id="menu-toggle"
+          class="lg:hidden w-10 h-10 bg-brand-purple rounded-full flex flex-col items-center justify-center gap-1.5 transition-all duration-300"
+        >
+          <span
+            class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"
+          ></span>
+          <span
+            class="w-5 h-0.5 bg-white transition-all duration-300 burger-stroke"
+          ></span>
+        </button>
+
+        <div id="nav-contact" class="hidden lg:block">
+          <a
+            href="../index.html#projects-section"
+            class="btn-grow px-8 py-2 text-md font-inter bg-brand-black font-light text-brand-white rounded-full block"
+            >Projects</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Drawer (Moved outside nav to fix layout shifts) -->
+    <div
+      id="mobile-menu"
+      class="lg:hidden fixed top-[110px] left-0 right-0 w-[92%] mx-auto bg-white border border-gray-200 rounded-[30px] p-6 opacity-0 scale-95 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] z-100"
+    >
+      <ul
+        class="flex flex-col gap-6 font-inter text-brand-black text-xl font-light"
+      >
+        <li><a href="../index.html#home" class="mobile-link">Home</a></li>
+        <li>
+          <a href="../index.html#about-section" class="mobile-link">About</a>
+        </li>
+        <li>
+          <a
+            href="../media/Chukwudolue C. Favour_CV.pdf"
+            download
+            class="mobile-link"
+            >Resume</a
+          >
+        </li>
+        <li class="pt-4 border-t border-gray-100">
+          <a
+            href="../index.html#projects-section"
+            class="text-brand-purple font-medium"
+            >My Projects</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <main id="home">
+      <div id="custom-cursor" class="custom-cursor"></div>
+
+      <!-- Case Study Title Header -->
+      <section class="w-site-2 mx-auto pt-32 pb-16 md:pt-48 md:pb-24">
+        <h1
+          class="font-antonio text-4xl md:text-7xl font-bold uppercase text-brand-black leading-none mb-6 gs-reveal"
+        >
+          Temu Ordering & Delivery Optimisation
+        </h1>
+        <p
+          class="font-inter text-xl md:text-2xl font-light text-brand-black/70 max-w-3xl gs-reveal"
+        >
+          Conducted a full end-to-end business analysis of Temu's ordering and delivery system to address incorrect product deliveries, payment inefficiencies, and high customer complaint volumes.
+        </p>
+      </section>
+
+      <!-- 1. PROJECT SNAPSHOT -->
+      <section
+        class="w-site-2 mx-auto pb-24 md:pb-32 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
+      >
+        <!-- Left: Abstract Typographic Header -->
+        <div
+          class="w-full aspect-4/3 bg-brand-black rounded-3xl flex flex-col items-center justify-center gs-reveal overflow-hidden shadow-sm p-12 text-center"
+        >
+          <h2 class="font-antonio text-6xl md:text-8xl text-white/10 uppercase font-extrabold mb-4 leading-none">
+            Process<br/>Optimisation
+          </h2>
+          <p class="font-inter text-brand-purple text-xl font-light tracking-widest uppercase">Business Analysis</p>
+        </div>
+
+        <!-- Right: 2x3 Grid of Cards -->
+        <div class="grid grid-cols-2 gap-6 gs-reveal">
+          <div
+            class="bg-gray-50 border border-gray-100 p-6 rounded-2xl relative group cursor-pointer"
+            tabindex="0"
+          >
+            <div class="text-brand-purple mb-2">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                ></path>
+              </svg>
+            </div>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Project Type
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              Business Analysis
+            </p>
+            <div class="card-tooltip">Business Analysis</div>
+          </div>
+
+          <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl">
+            <div class="text-brand-purple mb-2">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Industry
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              E-Commerce
+            </p>
+          </div>
+
+          <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl">
+            <div class="text-brand-purple mb-2">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Timeline
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              2026 (8 Weeks)
+            </p>
+          </div>
+
+          <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl">
+            <div class="text-brand-purple mb-2">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Role
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              Business Analyst
+            </p>
+          </div>
+
+          <div class="bg-gray-50 border border-gray-100 p-6 rounded-2xl">
+            <div class="text-brand-purple mb-2">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                ></path>
+              </svg>
+            </div>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Tools Used
+            </h3>
+            <p class="font-inter font-medium text-brand-black truncate">
+              Requirements Gathering
+            </p>
+          </div>
+
+          <div
+            class="bg-brand-purple/10 border border-brand-purple/20 p-6 rounded-2xl relative group cursor-pointer"
+            tabindex="0"
+          >
+            <div class="text-brand-purple mb-2">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                ></path>
+              </svg>
+            </div>
+            <h3
+              class="font-inter text-xs text-brand-black/50 uppercase tracking-widest mb-1"
+            >
+              Key Deliverables
+            </h3>
+            <p
+              class="font-inter font-medium text-brand-purple truncate"
+              title="FRD & BRD Specs"
+            >
+              FRD & BRD Specs
+            </p>
+            <div class="card-tooltip">FRD & BRD Specs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PROBLEM SECTION -->
+      <section class="w-site-2 mx-auto py-24 md:py-32 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto text-center mb-16 gs-reveal">
+          <h2
+            class="font-inter text-sm tracking-[0.2em] text-brand-black/50 uppercase mb-4"
+          >
+            The Problem
+          </h2>
+          <p
+            class="font-inter text-2xl md:text-4xl font-light text-brand-black leading-tight"
+          >
+            Temu faced high customer complaint volumes driven by incorrect product deliveries, payment inefficiencies, and an unintuitive ordering system.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 problem-grid">
+          <div
+            class="bg-white border border-gray-100 rounded-[32px] p-8 md:p-10 flex flex-col shadow-sm problem-card hover:-translate-y-2 transition-transform duration-300"
+          >
+            <span
+              class="problem-number font-antonio text-5xl md:text-6xl text-gray-200 font-bold mb-6"
+              >01</span
+            >
+            <p
+              class="font-inter text-brand-black font-medium text-xl leading-relaxed"
+            >
+              High rate of incorrect size deliveries and specification errors
+            </p>
+          </div>
+          <div
+            class="bg-white border border-gray-100 rounded-[32px] p-8 md:p-10 flex flex-col shadow-sm problem-card hover:-translate-y-2 transition-transform duration-300"
+          >
+            <span
+              class="problem-number font-antonio text-5xl md:text-6xl text-gray-200 font-bold mb-6"
+              >02</span
+            >
+            <p
+              class="font-inter text-brand-black font-medium text-xl leading-relaxed"
+            >
+              Inefficient payment processing resulting in failed transactions
+            </p>
+          </div>
+          <div
+            class="bg-white border border-gray-100 rounded-[32px] p-8 md:p-10 flex flex-col shadow-sm problem-card hover:-translate-y-2 transition-transform duration-300"
+          >
+            <span
+              class="problem-number font-antonio text-5xl md:text-6xl text-gray-200 font-bold mb-6"
+              >03</span
+            >
+            <p
+              class="font-inter text-brand-black font-medium text-xl leading-relaxed"
+            >
+              Lack of real-time order tracking and poor issue resolution
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. DOCUMENTS SECTION -->
+      <section
+        class="w-site-2 mx-auto py-24 md:py-32 border-t border-gray-100 bg-gray-50 rounded-[40px] px-8 md:px-16 my-16"
+      >
+        <h2
+          class="font-inter text-sm tracking-[0.2em] text-brand-black/50 uppercase text-center mb-16 gs-reveal"
+        >
+          Project Deliverables
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          <!-- Document 1: Business Case (Large Left) -->
+          <div
+            class="lg:col-span-7 bg-white rounded-[32px] p-8 md:p-12 border border-gray-100 shadow-sm flex flex-col gs-reveal hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
+          >
+            <!-- Decorative Background Element -->
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-brand-purple/5 rounded-full mix-blend-multiply blur-3xl transition-transform duration-700 group-hover:scale-150"></div>
+            
+            <div
+              class="w-16 h-16 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-8 relative z-10"
+            >
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-antonio text-3xl md:text-4xl font-bold uppercase mb-4 text-brand-black relative z-10">
+              Business Case Assignment
+            </h3>
+            <p class="font-inter font-light text-brand-black/70 md:text-lg mb-10 leading-relaxed grow relative z-10 max-w-xl">
+              A comprehensive proposal detailing the required changes to Temu's ordering system. This included a proposed $50,000 solution budget and an 8-week implementation timeline designed to significantly reduce the high volume of customer complaints.
+            </p>
+            <a href="../media/project-5 files/BUSINESS CASE Assignment.pptx" download class="btn-grow px-8 py-3 text-lg uppercase font-antonio border-2 border-brand-purple bg-brand-white font-light text-brand-purple rounded-full inline-flex items-center gap-3 w-fit relative z-10 hover:bg-brand-purple hover:text-white transition-colors duration-300">
+              <span>View Full Document</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            </a>
+          </div>
+
+          <!-- Document 2: FRD (Tall Right) -->
+          <div
+            class="lg:col-span-5 bg-brand-black text-white rounded-[32px] p-8 md:p-12 shadow-2xl flex flex-col gs-reveal hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
+          >
+            <!-- Decorative Background Element -->
+            <div class="absolute -left-20 -bottom-20 w-72 h-72 bg-white/5 rounded-full mix-blend-screen blur-3xl transition-transform duration-700 group-hover:scale-150"></div>
+
+            <div
+              class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center text-white mb-8 relative z-10"
+            >
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="font-antonio text-3xl md:text-4xl font-bold uppercase mb-4 text-white relative z-10">
+              Functional Requirements (FRD)
+            </h3>
+            <p class="font-inter font-light text-white/80 md:text-lg mb-10 leading-relaxed grow relative z-10">
+              Outlined specific system behaviors needed to enhance user satisfaction. Key features included Product Selection Accuracy controls to prevent incomplete orders, robust Order Verification systems, streamlined Payment Processing, and real-time Order Tracking capabilities.
+            </p>
+            <a href="../media/project-5 files/Functional Requirement Document.docx" download class="btn-grow px-8 py-3 text-lg uppercase font-antonio border-2 border-white bg-transparent font-light text-white rounded-full inline-flex items-center gap-3 w-fit relative z-10 hover:bg-white hover:text-brand-black transition-colors duration-300">
+              <span>View Full Document</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            </a>
+          </div>
+
+          <!-- Document 3: BRD (Wide Bottom) -->
+          <div
+            class="lg:col-span-12 bg-brand-purple rounded-[32px] p-8 md:p-12 lg:p-16 border border-brand-purple shadow-xl flex flex-col lg:flex-row gap-10 text-white gs-reveal hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
+          >
+            <!-- Decorative Background Element -->
+            <div class="absolute right-0 top-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent opacity-50 transition-opacity duration-700 group-hover:opacity-100"></div>
+
+            <div class="flex-1 relative z-10">
+              <div
+                class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-white mb-8"
+              >
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                </svg>
+              </div>
+              <h3 class="font-antonio text-3xl md:text-5xl font-bold uppercase mb-6 text-white">
+                Business Requirements (BRD)
+              </h3>
+              <p class="font-inter font-light text-white/90 md:text-xl leading-relaxed max-w-3xl">
+                Defined the project scope, user requirements, and constraints. This included ensuring IOS/Android compatibility, performance under high concurrent loads, restricting screenshots for payment security, and allowing customers to initiate returns within a 7-day window.
+              </p>
+            </div>
+
+            <div class="lg:w-auto flex items-end lg:items-center relative z-10 shrink-0">
+              <a href="../media/project-5 files/Business Requirement Document.docx" download class="btn-grow px-10 py-4 text-xl uppercase font-antonio bg-brand-black text-white rounded-full inline-flex items-center gap-3 w-full lg:w-auto justify-center hover:bg-white hover:text-brand-purple transition-colors duration-300 shadow-xl">
+                <span>View Full Document</span>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. RESULTS SECTION -->
+      <section class="w-site-2 mx-auto py-24 md:py-32 border-t border-gray-100">
+        <div class="text-center mb-16 gs-reveal">
+          <h2
+            class="font-antonio text-5xl md:text-7xl font-extrabold text-brand-black uppercase"
+          >
+            Project Impact
+          </h2>
+        </div>
+
+        <!-- Impact Statement -->
+        <div
+          class="bg-brand-purple/5 border border-brand-purple/20 rounded-[40px] p-10 md:p-16 mb-24 relative overflow-hidden gs-reveal"
+        >
+          <!-- Decorative Quote Icon -->
+          <svg
+            class="absolute top-8 left-8 md:top-12 md:left-12 w-20 h-20 md:w-32 md:h-32 text-brand-purple/10"
+            fill="currentColor"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+          >
+            <path
+              d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
+            ></path>
+          </svg>
+
+          <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <h3
+              class="font-inter text-sm tracking-[0.3em] font-medium text-brand-purple uppercase mb-6 md:mb-8"
+            >
+              Business Value Delivered
+            </h3>
+            <p
+              class="font-inter text-2xl md:text-4xl lg:text-5xl font-light text-brand-black leading-tight"
+            >
+              "By clearly defining functional and system requirements, this project provides a structured roadmap to enhance user satisfaction, reduce costly delivery errors, and streamline e-commerce operations."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. NEXT PROJECT CTA -->
+      <section class="max-w-4xl mx-auto pb-24 md:pb-32 px-4 gs-reveal">
+        <a
+          href="project-1.html"
+          class="group block bg-gray-50 hover:bg-brand-black hover:text-white duration-500 rounded-[40px] p-12 md:p-20 text-center border border-gray-100 hover:border-brand-black shadow-sm hover:shadow-2xl hover:-translate-y-2 transform transition-all"
+        >
+          <h4
+            class="font-inter text-sm tracking-[0.3em] font-medium text-brand-black/50 group-hover:text-white/60 uppercase mb-4 transition-colors"
+          >
+            Up Next
+          </h4>
+          <h2
+            class="font-antonio text-4xl md:text-6xl font-bold uppercase mb-8"
+          >
+            Customer Segmentation Analysis
+          </h2>
+          <div
+            class="inline-flex items-center gap-3 font-inter font-medium tracking-wide"
+          >
+            View Case Study
+            <svg
+              class="w-6 h-6 transform group-hover:translate-x-2 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              ></path>
+            </svg>
+          </div>
+        </a>
+      </section>
+
+      <section
+        id="contact-section"
+        class="py-18 md:py-32 w-site-2 mx-auto flex flex-col justify-center border-t border-gray-100"
+      >
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end pb-10"
+        >
+          <!-- Animated Headline (Left/Large spanning) -->
+          <div class="lg:col-span-8">
+            <div class="overflow-hidden pb-4">
+              <h2
+                id="contact-headline"
+                class="font-antonio text-pc-2 font-extrabold text-brand-black leading-[0.9] uppercase translate-y-full opacity-0"
+              >
+                Let's Build<br />
+                Something<br />
+                Exceptional
+              </h2>
+            </div>
+          </div>
+
+          <!-- Supporting Text & CTA (Right aligned at the bottom) -->
+          <div class="lg:col-span-4 flex flex-col items-start space-y-10 pb-4">
+            <div class="overflow-hidden">
+              <p
+                id="contact-subheadline"
+                class="font-inter font-light text-xl md:text-2xl text-brand-black translate-y-10 opacity-0"
+              >
+                Have a project in mind? Let's talk and create something
+                unforgettable together.
+              </p>
+            </div>
+
+            <div class="overflow-hidden pt-2">
+              <!-- Using the site's existing btn-grow style -->
+              <a
+                id="contact-cta"
+                href="mailto:chisomfavor003@gmail.com"
+                class="btn-grow px-8 py-4 w-fit text-xl lg:text-3xl uppercase font-antonio border-2 border-brand-purple bg-brand-white font-light text-brand-purple rounded-full flex items-center gap-4 translate-y-10 opacity-0 group"
+              >
+                <span>Start a Conversation</span>
+                <svg
+                  class="w-6 h-6 lg:w-8 lg:h-8 transform transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-brand-purple text-brand-white py-16">
+      <div class="w-site-2 mx-auto">
+        <!-- First Div: Contact & Socials -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-8 border-b-2 border-brand-white"
+        >
+          <div class="flex flex-col space-y-2">
+            <h3 class="footer-title font-antonio text-2xl font-bold uppercase">
+              Email
+            </h3>
+            <a
+              href="mailto:chisomfavor003@gmail.com"
+              class="font-inter font-light text-xl hover:text-brand-black transition-colors"
+              >chisomfavor003@gmail.com</a
+            >
+          </div>
+
+          <div class="flex flex-col space-y-2">
+            <h3 class="footer-title font-antonio text-2xl font-bold uppercase">
+              Number
+            </h3>
+            <a
+              href="tel:+2349026621842"
+              class="font-inter font-light text-xl hover:text-brand-black transition-colors"
+              >+234 902 662 1842
+            </a>
+          </div>
+
+          <div class="flex flex-col space-y-2 md:justify-self-end">
+            <h3
+              class="footer-title font-antonio text-2xl font-bold uppercase md:text-right"
+            >
+              Socials
+            </h3>
+            <div class="flex gap-6 font-inter font-light text-xl">
+              <a
+                href="https://www.linkedin.com/in/chukwudolue-chisom"
+                class="hover:text-brand-black transition-colors"
+                >LinkedIn</a
+              >
+              <a
+                href="https://x.com/Chisom_favour03?s=09"
+                class="hover:text-brand-black transition-colors"
+                >Twitter</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Div: Copyright -->
+        <div
+          class="mt-8 flex flex-col md:flex-row justify-between md:items-center gap-4 font-inter font-light text-md md:text-lg"
+        >
+          <div>&copy; 2026 Chisom C. Favour. All Rights Reserved.</div>
+          <div>
+            Designed by
+            <a href="https://www.instagram.com/theofficialcodevine/"
+              >Codevine</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="script.js"></script>
+</html>
